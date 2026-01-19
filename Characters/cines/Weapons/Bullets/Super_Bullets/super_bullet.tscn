@@ -1,0 +1,156 @@
+[gd_scene load_steps=14 format=3 uid="uid://b0capeufkqh1m"]
+
+[ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_d4nr5"]
+[ext_resource type="PackedScene" uid="uid://be8nc3qt5bik4" path="res://Characters/cines/Weapons/Bullets/Bullet_explodion.tscn" id="2_fu8as"]
+[ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_1d616"]
+[ext_resource type="Texture2D" uid="uid://dmms4jsorqdef" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Sprite-Super_Bullet.png" id="3_1m2wv"]
+[ext_resource type="Script" uid="uid://lieq52u44q58" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_impulse_mov.gd" id="6_0wgxk"]
+[ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="7_0wgxk"]
+[ext_resource type="Script" uid="uid://i87op1aaympn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_normal_mov.gd" id="7_b27nj"]
+[ext_resource type="Script" uid="uid://bm7gps7pilfnn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/Super_freeze.gd" id="8_0wgxk"]
+
+[sub_resource type="Animation" id="Animation_6lj2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k5ige"]
+resource_name = "start"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 0.25), Vector2(0.25, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b4v4q"]
+_data = {
+&"RESET": SubResource("Animation_6lj2m"),
+&"start": SubResource("Animation_k5ige")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d616"]
+size = Vector2(26, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03v4q"]
+resource_local_to_scene = true
+shader = ExtResource("3_1d616")
+shader_parameter/flash_cor = Color(1, 0, 0, 1)
+shader_parameter/float_flash = 1.0
+
+[node name="Super_Bullet" type="Area2D" node_paths=PackedStringArray("texture", "Anim")]
+script = ExtResource("1_d4nr5")
+texture = NodePath("Sprite2D")
+Anim = NodePath("AnimationPlayer")
+Particle = ExtResource("2_fu8as")
+Points_Acresim = 200
+IsReduction_Super = true
+metadata/_custom_type_script = "uid://cl4gm32xheimw"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_b4v4q")
+}
+autoplay = "start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_1d616")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_03v4q")
+rotation = 1.5707964
+texture = ExtResource("3_1m2wv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-15, -1)
+rect = Rect2(0, -7, 3, 17)
+
+[node name="ImpulseMovBullet" type="Node" parent="."]
+script = ExtResource("6_0wgxk")
+ACRESIMO = 2.0
+SUAVIZACAO = 0.75
+metadata/_custom_type_script = "uid://lieq52u44q58"
+
+[node name="MovBullet" type="Node" parent="."]
+script = ExtResource("7_b27nj")
+metadata/_custom_type_script = "uid://i87op1aaympn"
+
+[node name="CollidedEnemies" type="Node" parent="."]
+script = ExtResource("7_0wgxk")
+Restriction_State = false
+Destroy_Bool = false
+Shake = 5.0
+metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
+
+[node name="FreezeSuper" type="Node" parent="."]
+script = ExtResource("8_0wgxk")
+Duracao = 0.25
+metadata/_custom_type_script = "uid://bm7gps7pilfnn"
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="queue_free"]

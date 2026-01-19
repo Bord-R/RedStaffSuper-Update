@@ -1,0 +1,150 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0lfueamj0fbo"]
+
+[ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_13pfk"]
+[ext_resource type="PackedScene" uid="uid://dnh6xhob4rij6" path="res://Characters/cines/Weapons/Bullets/bazuca_explodion.tscn" id="2_ofb1p"]
+[ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_e7cje"]
+[ext_resource type="Texture2D" uid="uid://b38hw1tlyhfg4" path="res://Characters/Sprites/pistols/bullets/Sprite-bazuca_bullet.png" id="3_elu8g"]
+[ext_resource type="Script" uid="uid://i87op1aaympn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_normal_mov.gd" id="5_elu8g"]
+[ext_resource type="Script" uid="uid://lieq52u44q58" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_impulse_mov.gd" id="6_3nvu7"]
+[ext_resource type="Script" uid="uid://cc8s3ipraawh5" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_walls.gd" id="7_rwh8t"]
+[ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="8_571wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nvu7"]
+size = Vector2(18, 14)
+
+[sub_resource type="Animation" id="Animation_elu8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.99116415, 0.99116427, 0.99116415, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e7cje"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.99116415, 0.99116427, 0.99116415, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 2), Vector2(2, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3nvu7"]
+_data = {
+&"RESET": SubResource("Animation_elu8g"),
+&"start": SubResource("Animation_e7cje")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elu8g"]
+shader = ExtResource("3_e7cje")
+shader_parameter/flash_cor = Color(0.99116415, 0.99116427, 0.99116415, 1)
+shader_parameter/float_flash = 0.0
+
+[node name="Bazuca Bullet" type="Area2D" node_paths=PackedStringArray("texture", "Anim")]
+z_index = 1
+script = ExtResource("1_13pfk")
+texture = NodePath("Sprite2D")
+Anim = NodePath("AnimationPlayer")
+Particle = ExtResource("2_ofb1p")
+Scale_particle = Vector2(2, 2)
+Points_Acresim = 150
+metadata/_custom_type_script = "uid://cl4gm32xheimw"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-5, -1)
+rect = Rect2(-10, -5, 4, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_3nvu7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3nvu7")
+}
+autoplay = "start"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_elu8g")
+texture = ExtResource("3_elu8g")
+
+[node name="CollidedWalls" type="Node" parent="."]
+script = ExtResource("7_rwh8t")
+metadata/_custom_type_script = "uid://cc8s3ipraawh5"
+
+[node name="ImpulseMovBullet" type="Node" parent="."]
+script = ExtResource("6_3nvu7")
+metadata/_custom_type_script = "uid://lieq52u44q58"
+
+[node name="MovBullet" type="Node" parent="."]
+script = ExtResource("5_elu8g")
+metadata/_custom_type_script = "uid://i87op1aaympn"
+
+[node name="CollidedEnemies" type="Node" parent="."]
+script = ExtResource("8_571wa")
+Restriction_State = false
+Shake = 4.5
+metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="queue_free"]

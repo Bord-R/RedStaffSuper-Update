@@ -1,0 +1,171 @@
+[gd_scene load_steps=25 format=3 uid="uid://cj0a62p7vekax"]
+
+[ext_resource type="Shader" uid="uid://cur5kdo3q4cjg" path="res://Menu/Shaders/BackGroud-Menu.gdshader" id="1_7jyf7"]
+[ext_resource type="Texture2D" uid="uid://m6cb8icuj2b3" path="res://Menu/Sprites/BackGroud-Menu.png" id="1_jdcpi"]
+[ext_resource type="Script" uid="uid://v408pyb2yc1o" path="res://Worlds/Scripts/Menu-Principal.gd" id="1_u40gu"]
+[ext_resource type="Texture2D" uid="uid://bdlu1giey8psl" path="res://Menu/Sprites/Vines-Menu.png" id="2_u1l74"]
+[ext_resource type="Texture2D" uid="uid://uif40o5nr2jh" path="res://Menu/Sprites/VinesB-Menu.png" id="4_7t3q7"]
+[ext_resource type="Texture2D" uid="uid://cntyqjwrntjtu" path="res://Menu/Sprites/Sprite-Bar_menu.png" id="6_8184t"]
+[ext_resource type="Texture2D" uid="uid://cfj422noo03fo" path="res://Menu/Sprites/Title-Menu.png" id="6_iklu8"]
+[ext_resource type="Texture2D" uid="uid://b8te6461l54ib" path="res://Menu/Sprites/Buttons/Start-Button.png" id="8_6d2ny"]
+[ext_resource type="Script" uid="uid://yppm0ae6v2r5" path="res://Menu/My_Button.gd" id="9_6d2ny"]
+[ext_resource type="Texture2D" uid="uid://b8sfk13jgtuqp" path="res://Menu/Sprites/Buttons/Opitions-Button.png" id="10_4jwur"]
+[ext_resource type="Texture2D" uid="uid://dggc0modlux87" path="res://Menu/Sprites/Buttons/Quit-Button.png" id="11_8184t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u40gu"]
+resource_local_to_scene = true
+shader = ExtResource("1_7jyf7")
+shader_parameter/Reducao = 0.2
+shader_parameter/escuridao = Color(0.039215688, 0.07058824, 0.13725491, 1)
+shader_parameter/Varicao = 0.499999988824
+
+[sub_resource type="Animation" id="Animation_w2g7v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7t3q7"]
+resource_name = "Rotate title"
+length = 2.0
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.089999914, 0.91, 1.01),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.2513274122871831, -0.3490658503988659, 0.2513274122871831, 0.3490658503988659]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6d2ny"]
+_data = {
+&"RESET": SubResource("Animation_w2g7v"),
+&"Rotate title": SubResource("Animation_7t3q7")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jwur"]
+atlas = ExtResource("8_6d2ny")
+region = Rect2(0, 10, 238, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2g7v"]
+atlas = ExtResource("8_6d2ny")
+region = Rect2(0, 170, 238, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d2ny"]
+atlas = ExtResource("8_6d2ny")
+region = Rect2(0, 336, 238, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8184t"]
+atlas = ExtResource("10_4jwur")
+region = Rect2(0, 0, 0, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbfbg"]
+atlas = ExtResource("10_4jwur")
+region = Rect2(0, 127, 0, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc0xq"]
+atlas = ExtResource("10_4jwur")
+region = Rect2(0, 255, 0, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgln1"]
+atlas = ExtResource("11_8184t")
+region = Rect2(0, 0, 0, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reqod"]
+atlas = ExtResource("11_8184t")
+region = Rect2(0, 110, 0, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sow0d"]
+atlas = ExtResource("11_8184t")
+region = Rect2(0, 220, 0, 110)
+
+[node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("BackGroud")]
+follow_viewport_enabled = true
+script = ExtResource("1_u40gu")
+BackGroud = NodePath("BackGroud")
+
+[node name="BackGroud" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_u40gu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jdcpi")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VinesBackGroud" type="Sprite2D" parent="."]
+modulate = Color(0.734375, 0.734375, 0.734375, 1)
+position = Vector2(320, 180)
+rotation = 0.02689891
+scale = Vector2(1.0989236, 1.0989236)
+texture = ExtResource("4_7t3q7")
+
+[node name="VinesPlacehonder" type="Sprite2D" parent="."]
+modulate = Color(0.80078125, 0.80078125, 0.80078125, 1)
+position = Vector2(320, 180)
+texture = ExtResource("2_u1l74")
+
+[node name="BarPlacehonder" type="Sprite2D" parent="."]
+position = Vector2(167, 178)
+texture = ExtResource("6_8184t")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(453, 139)
+texture = ExtResource("6_iklu8")
+
+[node name="TitleAnimation" type="AnimationPlayer" parent="Title"]
+libraries = {
+&"": SubResource("AnimationLibrary_6d2ny")
+}
+autoplay = "Rotate title"
+
+[node name="Start" type="TextureButton" parent="."]
+offset_left = 22.0
+offset_top = 6.0
+offset_right = 251.0
+offset_bottom = 132.0
+texture_normal = SubResource("AtlasTexture_4jwur")
+texture_pressed = SubResource("AtlasTexture_w2g7v")
+texture_hover = SubResource("AtlasTexture_6d2ny")
+ignore_texture_size = true
+script = ExtResource("9_6d2ny")
+metadata/_custom_type_script = "uid://yppm0ae6v2r5"
+
+[node name="Opitions" type="TextureButton" parent="."]
+offset_top = 132.0
+offset_right = 204.0
+offset_bottom = 229.0
+texture_normal = SubResource("AtlasTexture_8184t")
+texture_pressed = SubResource("AtlasTexture_vbfbg")
+texture_hover = SubResource("AtlasTexture_yc0xq")
+ignore_texture_size = true
+script = ExtResource("9_6d2ny")
+metadata/_custom_type_script = "uid://yppm0ae6v2r5"
+
+[node name="Quit" type="TextureButton" parent="."]
+offset_top = 250.0
+offset_right = 182.0
+offset_bottom = 336.0
+texture_normal = SubResource("AtlasTexture_bgln1")
+texture_pressed = SubResource("AtlasTexture_reqod")
+texture_hover = SubResource("AtlasTexture_sow0d")
+ignore_texture_size = true
+script = ExtResource("9_6d2ny")
+metadata/_custom_type_script = "uid://yppm0ae6v2r5"

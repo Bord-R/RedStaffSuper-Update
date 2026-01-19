@@ -1,0 +1,162 @@
+[gd_scene load_steps=16 format=3 uid="uid://csempmgf71cjw"]
+
+[ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_gafsv"]
+[ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="2_2plq4"]
+[ext_resource type="PackedScene" uid="uid://be8nc3qt5bik4" path="res://Characters/cines/Weapons/Bullets/Bullet_explodion.tscn" id="2_tv0bl"]
+[ext_resource type="Texture2D" uid="uid://d03xrpfed845t" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Sprite-Super_StaffGreen.png" id="3_546lm"]
+[ext_resource type="Script" uid="uid://bm7gps7pilfnn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/Super_freeze.gd" id="4_73dwa"]
+[ext_resource type="Script" uid="uid://dpubroe8jpixg" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Spin_mov.gd" id="5_tv0bl"]
+[ext_resource type="Script" uid="uid://dsr2bvynqhw71" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Create_effect.gd" id="6_sqeih"]
+[ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="7_73dwa"]
+[ext_resource type="PackedScene" uid="uid://cv2gkocyf6dl6" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/Super_Effect/poison_area.tscn" id="8_73dwa"]
+[ext_resource type="Script" uid="uid://lieq52u44q58" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_impulse_mov.gd" id="10_sqeih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi5x5"]
+size = Vector2(21.213205, 21.213205)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5cvi"]
+shader = ExtResource("2_2plq4")
+shader_parameter/flash_cor = Color(0, 0, 0, 1)
+shader_parameter/float_flash = 0.0
+
+[sub_resource type="Animation" id="Animation_tv0bl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_73dwa"]
+resource_name = "start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.74492455, 1, 0.78756577, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 1), Vector2(0.5, 1.5), Vector2(1.2, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqeih"]
+_data = {
+&"RESET": SubResource("Animation_tv0bl"),
+&"start": SubResource("Animation_73dwa")
+}
+
+[node name="SuperStaffGreen" type="Area2D" node_paths=PackedStringArray("texture", "Anim")]
+script = ExtResource("1_gafsv")
+texture = NodePath("Texture")
+Anim = NodePath("AnimationPlayer")
+Particle = ExtResource("2_tv0bl")
+Scale_particle = Vector2(2, 2)
+Points_Acresim = 250
+IsReduction_Super = true
+metadata/_custom_type_script = "uid://cl4gm32xheimw"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-6.854534e-07, 0)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_hi5x5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-1, -1, 2, 2)
+
+[node name="Texture" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_p5cvi")
+texture = ExtResource("3_546lm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sqeih")
+}
+autoplay = "start"
+
+[node name="FreezeSuper" type="Node" parent="."]
+script = ExtResource("4_73dwa")
+Duracao = 0.2
+metadata/_custom_type_script = "uid://bm7gps7pilfnn"
+
+[node name="SpinMove" type="Node" parent="."]
+script = ExtResource("5_tv0bl")
+Timer_mov = 0.2
+metadata/_custom_type_script = "uid://dpubroe8jpixg"
+
+[node name="CollidedEnemies" type="Node" parent="."]
+script = ExtResource("7_73dwa")
+Restriction_State = false
+Destroy_Bool = false
+metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
+
+[node name="CreateEffect" type="Node" parent="." node_paths=PackedStringArray("HitBox")]
+script = ExtResource("6_sqeih")
+Effect = ExtResource("8_73dwa")
+HitBox = NodePath("..")
+metadata/_custom_type_script = "uid://dsr2bvynqhw71"
+
+[node name="ImpulseMovBullet" type="Node" parent="."]
+script = ExtResource("10_sqeih")
+ACRESIMO = 2.0
+SUAVIZACAO = 0.1
+metadata/_custom_type_script = "uid://lieq52u44q58"

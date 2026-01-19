@@ -1,0 +1,20 @@
+
+Conteudos a adicionar:
+
+• Game Over Screen 
+    • Script
+    • refinamento
+
+• Supers
+    • Super da bazuca infinalizada
+    • Super dos cajados não feitas
+
+• Menu de Pause
+
+• Tela de opções
+
+•   pera (inimigo explosivo)
+
+•   uva (inimigo atirador)
+
+• Megapple (mini boss)

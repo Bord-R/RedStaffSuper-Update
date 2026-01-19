@@ -1,0 +1,149 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbrg3bafyvxoa"]
+
+[ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_gd4em"]
+[ext_resource type="PackedScene" uid="uid://be8eqfe5y0u2h" path="res://Characters/cines/Weapons/Bullets/projetil_verde.tscn" id="2_14fpb"]
+[ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="2_l55ay"]
+[ext_resource type="PackedScene" uid="uid://csempmgf71cjw" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/super_staff_green.tscn" id="3_vs00p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14fpb"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(415, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn7py"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(463, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53474"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(511, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghb61"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(559, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2qim"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(607, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1dtw"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(655, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl4hj"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(703, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opon7"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(751, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_546m6"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(799, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clbhr"]
+atlas = ExtResource("2_l55ay")
+region = Rect2(415, 32, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wqch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14fpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn7py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53474")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghb61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2qim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1dtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl4hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opon7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_546m6")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clbhr")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l55ay"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14fpb"]
+size = Vector2(38, 6)
+
+[node name="CajadoVerde" type="CharacterBody2D" node_paths=PackedStringArray("Anim", "Collision", "Ray", "Area", "Marker")]
+z_index = 3
+script = ExtResource("1_gd4em")
+Bullet = ExtResource("2_14fpb")
+Super_Bullet = ExtResource("3_vs00p")
+Buff_Super = 1.25
+Variant_Curve = Dictionary[String, float]({
+"Max_Curve": 0.5,
+"Min_Curve": -0.35
+})
+Variant_Damage = Dictionary[String, int]({
+"Max_Damage": 3,
+"Min_Damage": 0
+})
+MAX_DELAY_WEAPON = 2.5
+Knock_bullet = 1.6
+Shake_pistol = 1.25
+Vel_bullet = 2.5
+Glow_anim = &"glow"
+Use_anim = &"use"
+Anim = NodePath("Texture")
+Collision = NodePath("Colisão")
+Ray = NodePath("RayCast2D")
+Area = NodePath("Area2D")
+Marker = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://b7crhf3qe5rfq"
+
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, -1)
+sprite_frames = SubResource("SpriteFrames_5wqch")
+animation = &"glow"
+autoplay = "glow"
+frame_progress = 0.42015585
+
+[node name="Colisão" type="CollisionShape2D" parent="."]
+position = Vector2(60, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_l55ay")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(42, 0)
+target_position = Vector2(27, 0)
+hit_from_inside = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Colisão" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(46, 0)
+shape = SubResource("RectangleShape2D_14fpb")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(68, 0)

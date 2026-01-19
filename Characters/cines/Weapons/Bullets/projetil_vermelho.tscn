@@ -1,0 +1,187 @@
+[gd_scene load_steps=15 format=3 uid="uid://cbckv6j5yghoy"]
+
+[ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_h0c1i"]
+[ext_resource type="PackedScene" uid="uid://be8nc3qt5bik4" path="res://Characters/cines/Weapons/Bullets/Bullet_explodion.tscn" id="2_o8k4s"]
+[ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_hlkov"]
+[ext_resource type="Texture2D" uid="uid://m6naskjofxax" path="res://Characters/Sprites/pistols/bullets/Sprite-Bullet-StaffRed.png" id="4_sju32"]
+[ext_resource type="Script" uid="uid://dpubroe8jpixg" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Spin_mov.gd" id="5_eplbw"]
+[ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="6_s8a6b"]
+[ext_resource type="Script" uid="uid://cc8s3ipraawh5" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_walls.gd" id="7_u6leg"]
+[ext_resource type="Script" uid="uid://cofua4pjijvs1" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_hit_reduction.gd" id="8_o8k4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv576"]
+size = Vector2(12, 12)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f77gp"]
+resource_local_to_scene = true
+shader = ExtResource("3_hlkov")
+shader_parameter/flash_cor = Color(0, 0, 0, 1)
+shader_parameter/float_flash = 0.0
+
+[sub_resource type="Animation" id="Animation_oyoqn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_h0c1i"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.32),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_281io"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 2), Vector2(2, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.50328994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lyhxv"]
+_data = {
+&"RESET": SubResource("Animation_oyoqn"),
+&"hit": SubResource("Animation_h0c1i"),
+&"start": SubResource("Animation_281io")
+}
+
+[node name="projetil vermelho" type="Area2D" node_paths=PackedStringArray("texture", "Anim")]
+z_index = 4
+script = ExtResource("1_h0c1i")
+texture = NodePath("Sprite2D")
+Anim = NodePath("AnimationPlayer")
+Particle = ExtResource("2_o8k4s")
+Points_Acresim = 100
+metadata/_custom_type_script = "uid://cl4gm32xheimw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lv576")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_f77gp")
+texture = ExtResource("4_sju32")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lyhxv")
+}
+autoplay = "start"
+
+[node name="SpinMove" type="Node" parent="."]
+script = ExtResource("5_eplbw")
+Timer_mov = 0.5
+metadata/_custom_type_script = "uid://dpubroe8jpixg"
+
+[node name="CollidedWalls" type="Node" parent="."]
+script = ExtResource("7_u6leg")
+FORCE_SHAKE = 2.0
+metadata/_custom_type_script = "uid://cc8s3ipraawh5"
+
+[node name="HitReduction" type="Node" parent="." node_paths=PackedStringArray("Anim")]
+script = ExtResource("8_o8k4s")
+Anim = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://cofua4pjijvs1"
+
+[node name="CollidedEnemies" type="Node" parent="."]
+script = ExtResource("6_s8a6b")
+Destroy_Bool = false
+Shake = 3.5
+metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"

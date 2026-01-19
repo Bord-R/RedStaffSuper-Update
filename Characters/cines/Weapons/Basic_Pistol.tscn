@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7pb8a4cumr27"]
+
+[ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_1dmnb"]
+[ext_resource type="PackedScene" uid="uid://6aeke02umjjw" path="res://Characters/cines/Weapons/Bullets/Bullet.tscn" id="2_rxnbl"]
+[ext_resource type="PackedScene" uid="uid://b0capeufkqh1m" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/super_bullet.tscn" id="3_bvwnc"]
+[ext_resource type="Texture2D" uid="uid://cxoxcnpp3pi8e" path="res://Characters/Sprites/pistols/Sprite-Armas.png" id="3_rxnbl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_id3pn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh2t4"]
+atlas = ExtResource("3_rxnbl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djmje"]
+atlas = ExtResource("3_rxnbl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a30hr"]
+atlas = ExtResource("3_rxnbl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l42m1"]
+atlas = ExtResource("3_rxnbl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wno83"]
+atlas = ExtResource("3_rxnbl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4577"]
+atlas = ExtResource("3_rxnbl")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73efl"]
+atlas = ExtResource("3_rxnbl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wt4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh2t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djmje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a30hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l42m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wno83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4577")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73efl")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxnbl"]
+size = Vector2(22, 7)
+
+[node name="Basic Pistol" type="CharacterBody2D" node_paths=PackedStringArray("Anim", "Collision", "Ray", "Area", "Marker")]
+z_index = 3
+script = ExtResource("1_1dmnb")
+Bullet = ExtResource("2_rxnbl")
+Super_Bullet = ExtResource("3_bvwnc")
+Buff_Super = 1.5
+Variant_Curve = Dictionary[String, float]({
+"Max_Curve": 0.3,
+"Min_Curve": -0.2
+})
+Variant_Damage = Dictionary[String, int]({
+"Max_Damage": 3,
+"Min_Damage": 2
+})
+Buff_Damage = 20
+MAX_DELAY_WEAPON = 0.8
+Knock_bullet = 0.2
+Quantity_Super = 2
+Shake_pistol = 2.5
+Vel_bullet = 1.25
+Glow_anim = &"glow"
+Use_anim = &"use"
+Anim = NodePath("AnimatedSprite2D")
+Collision = NodePath("CollisionShape2D")
+Ray = NodePath("RayCast2D")
+Area = NodePath("Area2D")
+Marker = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://b7crhf3qe5rfq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(43, 1)
+shape = SubResource("CircleShape2D_id3pn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(29, 1)
+target_position = Vector2(27, -1)
+hit_from_inside = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 0)
+sprite_frames = SubResource("SpriteFrames_8wt4v")
+animation = &"use"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(43, -0.5)
+shape = SubResource("RectangleShape2D_rxnbl")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(53, 0)

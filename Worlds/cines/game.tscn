@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0if04joxed7"]
+
+[ext_resource type="Script" uid="uid://pwdernxgceuy" path="res://Worlds/Scripts/game.gd" id="1_33xom"]
+[ext_resource type="PackedScene" uid="uid://cj0a62p7vekax" path="res://Worlds/cines/menu.tscn" id="2_lpukx"]
+[ext_resource type="PackedScene" uid="uid://yuw8ty4qni6i" path="res://Worlds/cines/1_world.tscn" id="3_x0rne"]
+[ext_resource type="Shader" uid="uid://cur5kdo3q4cjg" path="res://Menu/Shaders/BackGroud-Menu.gdshader" id="4_lpukx"]
+[ext_resource type="PackedScene" uid="uid://bkc55urup361x" path="res://Worlds/cines/opções.tscn" id="5_x0rne"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0rne"]
+resource_local_to_scene = true
+shader = ExtResource("4_lpukx")
+shader_parameter/Reducao = 0.2
+shader_parameter/escuridao = Color(0.039215688, 0.07058824, 0.13725491, 1)
+shader_parameter/Varicao = 0.499999988824
+
+[node name="Game" type="Node" node_paths=PackedStringArray("Menu", "P_World", "Options", "Start", "Option", "Quit", "Return_menu")]
+script = ExtResource("1_33xom")
+Menu = NodePath("Menu")
+P_World = NodePath("1World")
+Options = NodePath("Opções")
+Start = NodePath("Menu/Start")
+Option = NodePath("Menu/Opitions")
+Quit = NodePath("Menu/Quit")
+Return_menu = NodePath("Opções/Button")
+
+[node name="Menu" parent="." instance=ExtResource("2_lpukx")]
+follow_viewport_enabled = false
+
+[node name="BackGroud" parent="Menu" index="0"]
+material = SubResource("ShaderMaterial_x0rne")
+
+[node name="1World" parent="." instance=ExtResource("3_x0rne")]
+process_mode = 4
+visible = false
+
+[node name="Opções" parent="." instance=ExtResource("5_x0rne")]
+visible = false
+
+[editable path="Menu"]
+[editable path="1World"]
+[editable path="Opções"]

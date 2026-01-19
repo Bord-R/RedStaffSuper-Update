@@ -1,0 +1,164 @@
+[gd_scene load_steps=19 format=3 uid="uid://c07rbei4fmklc"]
+
+[ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_fm4fu"]
+[ext_resource type="PackedScene" uid="uid://cbckv6j5yghoy" path="res://Characters/cines/Weapons/Bullets/projetil_vermelho.tscn" id="2_8vgq3"]
+[ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="3_04oht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tapcu"]
+atlas = ExtResource("3_04oht")
+region = Rect2(144, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go2t4"]
+atlas = ExtResource("3_04oht")
+region = Rect2(192, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6l30"]
+atlas = ExtResource("3_04oht")
+region = Rect2(240, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwvu6"]
+atlas = ExtResource("3_04oht")
+region = Rect2(288, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b7kp"]
+atlas = ExtResource("3_04oht")
+region = Rect2(336, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5odq5"]
+atlas = ExtResource("3_04oht")
+region = Rect2(384, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kouci"]
+atlas = ExtResource("3_04oht")
+region = Rect2(432, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uywof"]
+atlas = ExtResource("3_04oht")
+region = Rect2(480, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhuhu"]
+atlas = ExtResource("3_04oht")
+region = Rect2(528, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hsv6"]
+atlas = ExtResource("3_04oht")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tobpg"]
+atlas = ExtResource("3_04oht")
+region = Rect2(48, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3sn7"]
+atlas = ExtResource("3_04oht")
+region = Rect2(96, 64, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmmq4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tapcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go2t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6l30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwvu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b7kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5odq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kouci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uywof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhuhu")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hsv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tobpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3sn7")
+}],
+"loop": true,
+"name": &"use",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vepan"]
+radius = 3.0
+height = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4gao"]
+size = Vector2(47, 8)
+
+[node name="Cajado vermelho" type="CharacterBody2D" node_paths=PackedStringArray("Anim", "Collision", "Ray", "Area", "Marker")]
+script = ExtResource("1_fm4fu")
+Bullet = ExtResource("2_8vgq3")
+Buff_Super = 1.45
+Variant_Curve = Dictionary[String, float]({
+"Max_Curve": 0.3,
+"Min_Curve": -0.5
+})
+Variant_Damage = Dictionary[String, int]({
+"Max_Damage": 5,
+"Min_Damage": 2
+})
+Buff_Damage = 75
+MAX_DELAY_WEAPON = 3.25
+Knock_bullet = 1.2
+Quantity_bullets = 3
+Shake_pistol = 1.25
+Vel_bullet = 2.5
+Glow_anim = &"glow"
+Use_anim = &"use"
+Anim = NodePath("AnimatedSprite2D")
+Collision = NodePath("CollisionShape2D")
+Ray = NodePath("RayCast2D")
+Area = NodePath("Area2D")
+Marker = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://b7crhf3qe5rfq"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(55, 0)
+sprite_frames = SubResource("SpriteFrames_tmmq4")
+animation = &"glow"
+autoplay = "glow"
+frame = 2
+frame_progress = 0.69203454
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(55, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vepan")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(32, 0)
+target_position = Vector2(46, 0)
+hit_from_inside = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(78, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(35, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(20.5, 0)
+shape = SubResource("RectangleShape2D_u4gao")

@@ -1,0 +1,215 @@
+[gd_scene load_steps=14 format=3 uid="uid://chw36pjsrw4qq"]
+
+[ext_resource type="Script" uid="uid://cqybknulc04bc" path="res://Worlds/Scripts/game_over_screen.gd" id="1_uysed"]
+[ext_resource type="Texture2D" uid="uid://bi6ya2qi2m4iq" path="res://Characters/Sprites/Sprite-Light.png" id="2_so8ai"]
+[ext_resource type="Texture2D" uid="uid://cnmxvpxuumuoj" path="res://Menu/Sprites/Buttons/RetryMenu-Button.png" id="3_odjh8"]
+[ext_resource type="Script" uid="uid://yppm0ae6v2r5" path="res://Menu/My_Button.gd" id="4_4whg5"]
+[ext_resource type="FontFile" uid="uid://bw0xo6e1h53n7" path="res://Characters/Fonts/2.png" id="6_oe2du"]
+
+[sub_resource type="Animation" id="Animation_so8ai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.43, 0.54, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uysed"]
+resource_name = "fail"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333333, 1.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.54, 1), Color(1, 0.43137255, 0.5411765, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.53333336, 1.0333333, 1.5666667, 2.0666666, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.73333335), Color(1, 1, 1, 0.84705883), Color(1, 1, 1, 0.5294118), Color(1, 1, 1, 0.6745098), Color(1, 1, 1, 0.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.03490658503988659, 0.03490658503988659]
+}
+
+[sub_resource type="Animation" id="Animation_odjh8"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.33333334, 0.36666667, 0.43333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.9873638, 0.5400262, 1), Color(1, 0.43137255, 0.5411765, 1), Color(1, 0.43137255, 0.5411765, 1), Color(1, 0.9873638, 0.5400262, 1), Color(1, 0.43137255, 0.5411765, 1), Color(1, 0.9873638, 0.5400262, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333, 0.3, 0.4, 0.43333334, 0.46666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.52156866), Color(1, 1, 1, 0.52156866), Color(1, 1, 1, 0.827451), Color(1, 1, 1, 0.09019608), Color(1, 1, 1, 0.6392157), Color(1, 1, 1, 0.24313726), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.2, 0.23333333, 0.3, 0.36666667, 0.4, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.017453292519943295, 0.017453292, -0.05235987755982989, -0.05235988, -0.03490658503988659, -0.017453292, -0.03490658503988659]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mu7st"]
+_data = {
+&"RESET": SubResource("Animation_so8ai"),
+&"fail": SubResource("Animation_uysed"),
+&"start": SubResource("Animation_odjh8")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uysed"]
+atlas = ExtResource("3_odjh8")
+region = Rect2(0, 0, 0, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so8ai"]
+atlas = ExtResource("3_odjh8")
+region = Rect2(0, 128, 0, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu7st"]
+atlas = ExtResource("3_odjh8")
+region = Rect2(0, 64, 0, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvoox"]
+font = ExtResource("6_oe2du")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.3529412)
+shadow_offset = Vector2(0, 8)
+
+[node name="GameOverScreen" type="Node2D" node_paths=PackedStringArray("Dramatic_Light", "BackGroud", "Menu_bottom", "Text")]
+script = ExtResource("1_uysed")
+Dramatic_Light = NodePath("Light")
+BackGroud = NodePath("BackGroud")
+Menu_bottom = NodePath("Menu")
+Text = NodePath("GameOverLabel")
+
+[node name="BackGroud" type="ColorRect" parent="."]
+z_index = 4
+offset_left = -80.0
+offset_top = -105.0
+offset_right = 695.0
+offset_bottom = 438.0
+color = Color(0.078431375, 0.019607844, 0.16078432, 0)
+
+[node name="Light" type="Sprite2D" parent="."]
+modulate = Color(1, 0.43, 0.54, 0)
+z_index = 4
+position = Vector2(340, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_so8ai")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Light"]
+libraries = {
+&"": SubResource("AnimationLibrary_mu7st")
+}
+
+[node name="Menu" type="TextureButton" parent="."]
+z_index = 4
+offset_left = 290.0
+offset_top = 400.0
+offset_right = 386.0
+offset_bottom = 464.0
+pivot_offset = Vector2(48, 32)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_uysed")
+texture_pressed = SubResource("AtlasTexture_so8ai")
+texture_hover = SubResource("AtlasTexture_mu7st")
+script = ExtResource("4_4whg5")
+metadata/_custom_type_script = "uid://yppm0ae6v2r5"
+
+[node name="GameOverLabel" type="Label" parent="."]
+z_index = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = -100.0
+offset_right = 492.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(156, 24)
+size_flags_horizontal = 6
+size_flags_vertical = 3
+text = "GAME£OVER"
+label_settings = SubResource("LabelSettings_uvoox")
+horizontal_alignment = 1
+vertical_alignment = 1

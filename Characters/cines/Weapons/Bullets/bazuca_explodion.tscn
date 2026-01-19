@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnh6xhob4rij6"]
+
+[ext_resource type="Script" uid="uid://ni5w6xpqi4lw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bazuca_explodion.gd" id="1_rtecb"]
+[ext_resource type="Texture2D" uid="uid://cj6s7uyrtt4h7" path="res://Characters/Sprites/pistols/bullets/bullet_effects/Sprite-particle_bazuca.png" id="2_rtecb"]
+[ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="3_0ttdi"]
+
+[sub_resource type="Animation" id="Animation_6g0op"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0ttdi"]
+resource_name = "start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.23333333, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1.8, 1.6), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ydorf"]
+_data = {
+&"RESET": SubResource("Animation_6g0op"),
+&"start": SubResource("Animation_0ttdi")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtecb"]
+
+[node name="Bala" type="Area2D" node_paths=PackedStringArray("texture", "Anim")]
+script = ExtResource("1_rtecb")
+texture = NodePath("Sprite2D")
+Anim = NodePath("AnimationPlayer")
+Points_Acresim = 50
+Damage = 5
+Knockback = 3.0
+metadata/_custom_type_script = "uid://cl4gm32xheimw"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 4
+texture = ExtResource("2_rtecb")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ydorf")
+}
+autoplay = "start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_rtecb")
+
+[node name="CollidedEnemies" type="Node" parent="."]
+script = ExtResource("3_0ttdi")
+Restriction_State = false
+Destroy_Bool = false
+Shake = 3.0
+metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

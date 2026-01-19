@@ -1,0 +1,163 @@
+[gd_scene load_steps=19 format=3 uid="uid://bb27voy3dtvbf"]
+
+[ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_e6ftx"]
+[ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="2_7rrmo"]
+[ext_resource type="PackedScene" uid="uid://crtmfwgqacpgn" path="res://Characters/cines/Weapons/Bullets/projetil_azul.tscn" id="2_sck3f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5crt"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(656, 64, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eknss"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(736, 64, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e4hm"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(816, 64, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj1ks"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(16, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7gkf"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(96, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hyd2"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(176, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bn4o"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(256, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8k64"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(336, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okfyi"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(416, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeyoi"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(496, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrm7h"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(576, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wgch"]
+atlas = ExtResource("2_7rrmo")
+region = Rect2(576, 64, 80, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltg5q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5crt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eknss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e4hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj1ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7gkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hyd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bn4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8k64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okfyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeyoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrm7h")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wgch")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13ewu"]
+radius = 5.0
+height = 76.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5swl"]
+size = Vector2(72, 11)
+
+[node name="Cajado Azul" type="CharacterBody2D" node_paths=PackedStringArray("Anim", "Collision", "Ray", "Area", "Marker")]
+script = ExtResource("1_e6ftx")
+Bullet = ExtResource("2_sck3f")
+Buff_Super = 1.35
+Variant_Curve = Dictionary[String, float]({
+"Max_Curve": 0.3,
+"Min_Curve": -0.2
+})
+Variant_Damage = Dictionary[String, int]({
+"Max_Damage": 5,
+"Min_Damage": 3
+})
+Buff_Damage = 50
+MAX_DELAY_WEAPON = 3.5
+Knock_bullet = 0.75
+Quantity_bullets = 5
+Shake_pistol = 2.5
+Vel_bullet = 4.25
+Glow_anim = &"glow"
+Use_anim = &"use"
+Anim = NodePath("AnimatedSprite2D")
+Collision = NodePath("CollisionShape2D")
+Ray = NodePath("RayCast2D")
+Area = NodePath("Area2D")
+Marker = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://b7crhf3qe5rfq"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(90, -2)
+sprite_frames = SubResource("SpriteFrames_ltg5q")
+animation = &"glow"
+autoplay = "use"
+frame = 4
+frame_progress = 0.72940683
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(87, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_13ewu")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(111, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(86, 0.5)
+shape = SubResource("RectangleShape2D_i5swl")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(50, 1)
+target_position = Vector2(75, -1)
+hit_from_inside = true

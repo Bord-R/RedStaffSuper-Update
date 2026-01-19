@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=3 uid="uid://dvrw7o6fjbjv6"]
+
+[ext_resource type="Script" uid="uid://xwfcno6gnijl" path="res://Characters/Scripts/HUD.gd" id="1_77dsj"]
+[ext_resource type="Texture2D" uid="uid://3xebnmaobpwl" path="res://Characters/Sprites/Player/Sprite-player.png" id="2_4hog6"]
+[ext_resource type="Texture2D" uid="uid://combjgml833d5" path="res://Characters/Sprites/Player/Skins/Sprite-player_Maid_Skin.png" id="3_gmhyo"]
+[ext_resource type="Texture2D" uid="uid://bagq327t7wplr" path="res://Characters/Sprites/Player/Sprite-HUD_POINTS.png" id="4_8jm3a"]
+[ext_resource type="FontFile" uid="uid://bw0xo6e1h53n7" path="res://Characters/Fonts/2.png" id="5_w2e2q"]
+[ext_resource type="Texture2D" uid="uid://btc1dxr7nnmdq" path="res://Characters/Sprites/Player/HUD/Sprite-HUD_LIFE.png" id="6_g4s61"]
+[ext_resource type="Texture2D" uid="uid://ddpmocf1ycyof" path="res://Characters/Sprites/Player/HUD/Sprite-HUD_LIFE_MOLDURA.png" id="7_pivve"]
+[ext_resource type="Texture2D" uid="uid://bypm2ybi30vj1" path="res://Characters/Sprites/Player/HUD/Sprite-DEBUG_Window.png" id="8_8jm3a"]
+[ext_resource type="Texture2D" uid="uid://d17t07e781fow" path="res://Characters/Sprites/Player/HUD/Sprite-Icon_Debugwindow.png" id="9_w2e2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qqvqe"]
+font = ExtResource("5_w2e2q")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbx7u"]
+atlas = ExtResource("7_pivve")
+region = Rect2(0, 0, 66, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7r0w"]
+atlas = ExtResource("7_pivve")
+region = Rect2(66, 0, 66, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2u74"]
+atlas = ExtResource("7_pivve")
+region = Rect2(132, 0, 66, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd6w5"]
+atlas = ExtResource("7_pivve")
+region = Rect2(198, 0, 66, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1bqq"]
+atlas = ExtResource("7_pivve")
+region = Rect2(264, 0, 66, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ao7th"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbx7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7r0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2u74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd6w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1bqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jm3a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2e2q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Life", "Points", "Pontucao", "DEBUG_Code", "Line_Code")]
+script = ExtResource("1_77dsj")
+Life = NodePath("life")
+Points = NodePath("points")
+Pontucao = NodePath("points/Points")
+DEBUG_Code = NodePath("Debugcode")
+Line_Code = NodePath("Debugcode/LineEdit")
+Skin_Normal = ExtResource("2_4hog6")
+Maid_Skin = ExtResource("3_gmhyo")
+
+[node name="points" type="Sprite2D" parent="."]
+position = Vector2(142, 47)
+texture = ExtResource("4_8jm3a")
+hframes = 3
+vframes = 3
+
+[node name="Points" type="Label" parent="points"]
+offset_left = -14.0
+offset_top = -17.0
+offset_right = 72.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_qqvqe")
+
+[node name="life" type="Sprite2D" parent="."]
+position = Vector2(38, 38)
+texture = ExtResource("6_g4s61")
+hframes = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="life"]
+sprite_frames = SubResource("SpriteFrames_ao7th")
+autoplay = "default"
+frame = 1
+frame_progress = 0.68514335
+
+[node name="Debugcode" type="Sprite2D" parent="."]
+position = Vector2(160, 411)
+texture = ExtResource("8_8jm3a")
+
+[node name="LineEdit" type="LineEdit" parent="Debugcode"]
+offset_left = -141.0
+offset_top = -24.0
+offset_right = 109.0
+offset_bottom = 19.0
+theme_override_colors/font_uneditable_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_fonts/font = ExtResource("5_w2e2q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8jm3a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_w2e2q")
+placeholder_text = "CODE_EXEMPLE00"
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+right_icon = ExtResource("9_w2e2q")

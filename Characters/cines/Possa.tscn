@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuapdhv0a0wch"]
+
+[ext_resource type="Script" uid="uid://du8cvv8ny75uw" path="res://Characters/Scripts/Enemies_scripts/possa.gd" id="1_1fixv"]
+[ext_resource type="Texture2D" uid="uid://dx3yth7vc6ofq" path="res://Characters/Sprites/enemies/effects_enemies/Sprite-gosma.png" id="2_1fixv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fixv"]
+radius = 15.0
+height = 56.0
+
+[sub_resource type="Animation" id="Animation_shrwv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1fixv"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 0.23333332, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 0.2), Vector2(0.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pboii"]
+_data = {
+&"RESET": SubResource("Animation_shrwv"),
+&"start": SubResource("Animation_1fixv")
+}
+
+[node name="Possa" type="Area2D" node_paths=PackedStringArray("Texture2d")]
+script = ExtResource("1_1fixv")
+Texture2d = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1fixv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture = ExtResource("2_1fixv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_pboii")
+}
+autoplay = "start"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

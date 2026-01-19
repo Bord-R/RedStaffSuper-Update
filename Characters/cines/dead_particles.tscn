@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6wxcrfi7oiuo"]
+
+[ext_resource type="Texture2D" uid="uid://cutksy6ooafqf" path="res://Characters/Sprites/pistols/bullets/bullet_effects/Sprite-smoke.png" id="1_hp82a"]
+
+[sub_resource type="Gradient" id="Gradient_sy8ew"]
+offsets = PackedFloat32Array(0.57978725, 1)
+colors = PackedColorArray(1, 1, 0.99215686, 1, 1, 1, 1, 0.09019608)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qc02b"]
+gradient = SubResource("Gradient_sy8ew")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8kq13"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+radial_velocity_min = -100.00002
+radial_velocity_max = 63.999977
+gravity = Vector3(0, -10, 0)
+linear_accel_min = -69.05
+linear_accel_max = 99.99999
+tangential_accel_min = -40.48
+tangential_accel_max = 27.779997
+scale_min = 0.5
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_qc02b")
+
+[node name="dead_particles" type="GPUParticles2D"]
+z_index = 5
+amount = 40
+texture = ExtResource("1_hp82a")
+lifetime = 1.5
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8kq13")

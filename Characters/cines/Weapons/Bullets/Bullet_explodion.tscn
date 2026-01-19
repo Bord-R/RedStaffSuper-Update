@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://be8nc3qt5bik4"]
+
+[ext_resource type="Texture2D" uid="uid://siq8d4uf8qv6" path="res://Characters/Sprites/pistols/bullets/bullet_effects/Sprite-particle_bullet.png" id="1_b05ox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7pjo"]
+atlas = ExtResource("1_b05ox")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt5jy"]
+atlas = ExtResource("1_b05ox")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30ddl"]
+atlas = ExtResource("1_b05ox")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbgy5"]
+atlas = ExtResource("1_b05ox")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7pjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7pjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt5jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30ddl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbgy5")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 20.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_i7pjo")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[connection signal="animation_finished" from="." to="." method="queue_free"]
