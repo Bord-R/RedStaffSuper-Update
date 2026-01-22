@@ -32,7 +32,7 @@ var Dash_vel : float = DASH_VEL_MAX
 var Seg : float = 0.125
 
 #meu timer
-var Dash_Timer := Timer.new()
+var Dash_Timer : Timer = Timer.new()
 
 #função em forma de variavel que criara o efeito no dash
 var Parou_Timer : Callable = func (): Create_Effect()

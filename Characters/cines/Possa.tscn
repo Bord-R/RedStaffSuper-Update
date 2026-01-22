@@ -53,7 +53,7 @@ shape = SubResource("CapsuleShape2D_1fixv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-z_index = 1
+y_sort_enabled = true
 texture = ExtResource("2_1fixv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]

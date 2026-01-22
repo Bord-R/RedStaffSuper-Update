@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://yuw8ty4qni6i"]
+[gd_scene load_steps=11 format=4 uid="uid://yuw8ty4qni6i"]
 
 [ext_resource type="TileSet" uid="uid://1s707n68byqp" path="res://Worlds/tiles/1_world.tres" id="1_m4dxa"]
 [ext_resource type="Script" uid="uid://bmo70jsanelwe" path="res://Characters/Scripts/Camera.gd" id="2_7jtqy"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dbrg3bafyvxoa" path="res://Characters/cines/Weapons/cajado_verde.tscn" id="7_ei01c"]
 [ext_resource type="PackedScene" uid="uid://b4rgxx3biwmm5" path="res://Characters/cines/maça.tscn" id="7_te4ok"]
 [ext_resource type="PackedScene" uid="uid://c7pb8a4cumr27" path="res://Characters/cines/Weapons/Basic_Pistol.tscn" id="8_3803g"]
-[ext_resource type="PackedScene" uid="uid://bb27voy3dtvbf" path="res://Characters/cines/Weapons/cajado_azul.tscn" id="9_dkjyc"]
 [ext_resource type="PackedScene" uid="uid://giu8lit01pvb" path="res://Characters/cines/Weapons/bazuca.tscn" id="9_m4yvn"]
 [ext_resource type="PackedScene" uid="uid://c07rbei4fmklc" path="res://Characters/cines/Weapons/cajado_vermelho.tscn" id="10_m4yvn"]
 [ext_resource type="PackedScene" uid="uid://dvrw7o6fjbjv6" path="res://Characters/cines/HUD.tscn" id="11_m4yvn"]
@@ -103,8 +102,8 @@ position = Vector2(-974, 444)
 [node name="Cajado vermelho" parent="Characters/Pistols" instance=ExtResource("10_m4yvn")]
 position = Vector2(-1857.0945, 46.367645)
 
-[node name="Cajado Azul" parent="Characters/Pistols" instance=ExtResource("9_dkjyc")]
-position = Vector2(-116, -53)
+[node name="CajadoVerde3" parent="Characters/Pistols" instance=ExtResource("7_ei01c")]
+position = Vector2(-85.856445, -56.253967)
 
 [node name="Player_body" parent="Characters" node_paths=PackedStringArray("Screen_shake") instance=ExtResource("2_s8sl4")]
 unique_name_in_owner = true

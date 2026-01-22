@@ -1,13 +1,133 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv2gkocyf6dl6"]
+[gd_scene load_steps=17 format=3 uid="uid://cv2gkocyf6dl6"]
 
-[ext_resource type="Texture2D" uid="uid://cwb7ivfb6i74u" path="res://Characters/Sprites/pistols/bullets/Sprite-Bullet-StaffBlue.png" id="1_3wgcp"]
 [ext_resource type="Script" uid="uid://dgeuqty8b0wbh" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/poison_area.gd" id="1_sgwo4"]
 [ext_resource type="Texture2D" uid="uid://8f61f6apd16h" path="res://Characters/Sprites/pistols/bullets/bullet_effects/Sprite-effect_green.png" id="1_wrfu1"]
 [ext_resource type="Script" uid="uid://dsr2bvynqhw71" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Create_effect.gd" id="2_c70km"]
+[ext_resource type="Texture2D" uid="uid://cwyxodx02reht" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Super_Effects/Sprite-PoisonAreaEffect.png" id="2_sgwo4"]
 [ext_resource type="PackedScene" uid="uid://cbmb8ktxwttr2" path="res://Characters/cines/poison_effect.tscn" id="3_3wgcp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ma4c"]
 radius = 86.023254
+
+[sub_resource type="Animation" id="Animation_sgwo4"]
+resource_name = "start"
+length = 0.16
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.98687565, 1, 0.9996614, 0.97792965)]
+}
+
+[sub_resource type="Animation" id="Animation_lcodl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fm362"]
+resource_name = "in_game"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.71083194, 1, 0.9925387, 0.5137255)]
+}
+
+[sub_resource type="Animation" id="Animation_wj5i5"]
+resource_name = "end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.56078434, 0.039215688, 0.40392157, 0.6784314)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wj5i5"]
+_data = {
+&"RESET": SubResource("Animation_lcodl"),
+&"end": SubResource("Animation_wj5i5"),
+&"in_game": SubResource("Animation_fm362"),
+&"start": SubResource("Animation_sgwo4")
+}
 
 [sub_resource type="Gradient" id="Gradient_4j05s"]
 offsets = PackedFloat32Array(0.6995516, 1)
@@ -38,24 +158,36 @@ scale_min = 0.5
 scale_curve = SubResource("CurveTexture_m5q6t")
 color_ramp = SubResource("GradientTexture1D_s8g1p")
 
-[node name="PoisonArea" type="Area2D"]
+[node name="PoisonArea" type="Area2D" node_paths=PackedStringArray("Anim", "Particles")]
 z_index = 2
 script = ExtResource("1_sgwo4")
-Init_Damage = 1.5
+Init_Damage = 0.5
 Poits_Acresim = 75.0
 Super_Acresim = 1
+Anim = NodePath("Sprite2D/AnimationPlayer")
+Particles = NodePath("GPUParticles2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_1ma4c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 0.30980393)
+z_index = -1
+y_sort_enabled = true
 position = Vector2(-9.536743e-07, 0)
-scale = Vector2(10.218749, 10.15625)
-texture = ExtResource("1_3wgcp")
+texture = ExtResource("2_sgwo4")
+hframes = 6
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_wj5i5")
+}
+autoplay = "start"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = 5
+emitting = false
 amount = 2
 texture = ExtResource("1_wrfu1")
 explosiveness = 0.33
