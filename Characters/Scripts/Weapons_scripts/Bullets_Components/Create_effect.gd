@@ -8,8 +8,17 @@ class_name CreateEffect #craindo efeito
 #meu efeito 
 @export var Effect : PackedScene
 
+#boleano que vera eu posso criar um efeito apenas por script
+@export var IsScriptEffect : bool = false
+
 #hitbox da bala
 @export var HitBox : Area2D
+
+@export_group("IsScriptEffect = true") #grupo de se isscripteffect igual a verdadeiro
+
+@export var Quantity_Spikes : int = 4
+
+
 
 #endregion
 
@@ -60,7 +69,7 @@ func Inimigo_Detectado(_area : Area2D):
 func AreaCreate():
 	
 	#SE o efeito criado não for nulo
-	if Effect:
+	if Effect and !IsScriptEffect:
 
 		#instancio o efeito
 		var _New_Effect = Effect.instantiate()
@@ -68,6 +77,15 @@ func AreaCreate():
 		get_parent().MyPlayer.add_child(_New_Effect) #adiciono como filho do player
 
 		_New_Effect.global_position = get_parent().MyPlayer.global_position #a posição do efeito é igual a do player
+
+	#SE NÃO, SE eu tenho um efeito, podendo fazer via class.new E poder criar uma nova area
+	elif Effect and IsScriptEffect and Game.Is_CreateSpike:
+
+		var _new_Effect_Script = CreateSpike.new(Quantity_Spikes, Effect) #instancio um createspike com seu dados ja configurados
+
+		get_parent().MyPlayer.add_child(_new_Effect_Script) #adiciono como filho do player
+
+		Game.Is_CreateSpike = false #não posso criar uma area
 
 ################################################################################
 

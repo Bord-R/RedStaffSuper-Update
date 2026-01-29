@@ -16,7 +16,7 @@ class_name Armas
 @export var Super_Bullet : PackedScene = null
 
 #meu buff para a super
-@export_range(1.0, 2.0, 0.05) var Buff_Super : float = 0.0
+@export_range(1.0, 2.0, 0.05) var Buff_Super : float = 1.0
 
 #meu intervalo de curvatura
 @export var Variant_Curve : Dictionary[String, float] = {"Min_Curve": 0.0, "Max_Curve": 0.0}
@@ -371,7 +371,7 @@ func Super():
 			#adicionando a instancia a scenetree
 			get_tree().root.add_child(_Create_Super)
 
-			#minha  pode decresser os pontos de super
+			#minha super pode decresser os pontos de super
 			_Create_Super.IsReduction_Super = true
 
 			#mudando a posição de origem da super

@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://bg2um8pconfq0"]
+
+[ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_hote6"]
+[ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_mvlhq"]
+[ext_resource type="Texture2D" uid="uid://bhw7dlqloxndp" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Sprite-Super_StaffRed.png" id="3_sw3sb"]
+[ext_resource type="Script" uid="uid://bm7gps7pilfnn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/Super_freeze.gd" id="4_qe820"]
+[ext_resource type="Script" uid="uid://dpubroe8jpixg" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Spin_mov.gd" id="5_cskly"]
+[ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="6_mvlhq"]
+[ext_resource type="Script" uid="uid://dsr2bvynqhw71" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Create_effect.gd" id="7_sw3sb"]
+[ext_resource type="PackedScene" uid="uid://dftefklmggfdj" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/Super_Effect/spike_effect.tscn" id="8_qe820"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw3sb"]
+radius = 16.03122
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qe820"]
+resource_local_to_scene = true
+shader = ExtResource("3_mvlhq")
+shader_parameter/flash_cor = Color(0, 0, 0, 1)
+shader_parameter/float_flash = 0.0
+
+[sub_resource type="Animation" id="Animation_cskly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sdjeq"]
+resource_name = "start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1j1f"]
+_data = {
+&"RESET": SubResource("Animation_cskly"),
+&"start": SubResource("Animation_sdjeq")
+}
+
+[node name="SuperStaffRed" type="Area2D" node_paths=PackedStringArray("texture", "Anim")]
+script = ExtResource("1_hote6")
+texture = NodePath("Sprite2D")
+Anim = NodePath("AnimationPlayer")
+Points_Acresim = 225
+IsReduction_Super = true
+metadata/_custom_type_script = "uid://cl4gm32xheimw"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-2, -2, 4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sw3sb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qe820")
+texture = ExtResource("3_sw3sb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y1j1f")
+}
+autoplay = "start"
+
+[node name="FreezeSuper" type="Node" parent="."]
+script = ExtResource("4_qe820")
+Duracao = 0.15
+metadata/_custom_type_script = "uid://bm7gps7pilfnn"
+
+[node name="SpinMove" type="Node" parent="."]
+script = ExtResource("5_cskly")
+Timer_mov = 0.2
+metadata/_custom_type_script = "uid://dpubroe8jpixg"
+
+[node name="CollidedEnemies" type="Node" parent="."]
+script = ExtResource("6_mvlhq")
+Restriction_State = false
+Destroy_Bool = false
+metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
+
+[node name="CreateEffect" type="Node" parent="." node_paths=PackedStringArray("HitBox")]
+script = ExtResource("7_sw3sb")
+Effect = ExtResource("8_qe820")
+IsScriptEffect = true
+HitBox = NodePath("..")
+Quantity_Spikes = 8
+metadata/_custom_type_script = "uid://dsr2bvynqhw71"

@@ -157,6 +157,6 @@ metadata/_custom_type_script = "uid://dsr2bvynqhw71"
 
 [node name="ImpulseMovBullet" type="Node" parent="."]
 script = ExtResource("10_sqeih")
-ACRESIMO = 2.0
-SUAVIZACAO = 0.1
+ACRESIMO = 1.25
+SUAVIZACAO = 0.01
 metadata/_custom_type_script = "uid://lieq52u44q58"

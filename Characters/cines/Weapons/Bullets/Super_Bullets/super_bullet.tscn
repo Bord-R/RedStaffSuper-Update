@@ -134,7 +134,7 @@ rect = Rect2(0, -7, 3, 17)
 [node name="ImpulseMovBullet" type="Node" parent="."]
 script = ExtResource("6_0wgxk")
 ACRESIMO = 2.0
-SUAVIZACAO = 0.75
+SUAVIZACAO = 0.1
 metadata/_custom_type_script = "uid://lieq52u44q58"
 
 [node name="MovBullet" type="Node" parent="."]

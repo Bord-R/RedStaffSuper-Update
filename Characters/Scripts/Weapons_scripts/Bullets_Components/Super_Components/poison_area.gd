@@ -81,7 +81,8 @@ func Animation_Cicle(_name_anim : StringName): #ciclo de animações
 
 		Swap_Anim("in_game") #toca a animação "in game" (en jogo)
 
-	elif _name_anim == "end": queue_free() #SE NÃO, SE a animação for end, eu me deleto
+	#SE NÃO, SE a animação for end
+	elif _name_anim == "end": queue_free() #eu me deleto
 
 ################################################################################
 

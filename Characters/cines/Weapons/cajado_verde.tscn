@@ -100,15 +100,16 @@ z_index = 3
 script = ExtResource("1_gd4em")
 Bullet = ExtResource("2_14fpb")
 Super_Bullet = ExtResource("3_vs00p")
-Buff_Super = 1.25
+Buff_Super = 1.2
 Variant_Curve = Dictionary[String, float]({
 "Max_Curve": 0.5,
 "Min_Curve": -0.35
 })
 Variant_Damage = Dictionary[String, int]({
-"Max_Damage": 3,
-"Min_Damage": 0
+"Max_Damage": 5,
+"Min_Damage": 1
 })
+Buff_Damage = 20
 MAX_DELAY_WEAPON = 2.5
 Knock_bullet = 1.6
 Shake_pistol = 1.25

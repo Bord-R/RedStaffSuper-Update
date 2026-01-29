@@ -5,7 +5,7 @@ class_name CollidedEnemies #criando para ser usado como node
 #region Variables
 
 #meu pai
-@onready var Bullet : Bala = get_parent()
+@onready var Bullet : Area2D = get_parent()
 
 #minha restrição
 @export var Restriction_State : bool = true
@@ -102,10 +102,10 @@ func Aplicate_Damage(_Alvo : EnemiesFruits, _State : MaquinaEstados):
 
 	#mudo o valor variaveis do estado inimigo recem iniciado
 	_State.Meus_Estados[Hit_State].Knock_dir = Bullet.global_position #mudando a direção do knockback
-	_State.Meus_Estados[Hit_State].Knock_vel = Bullet.Knockback #mudndo a velocidade do knockback
+	_State.Meus_Estados[Hit_State].Knock_vel = Bullet.Knockback #mudando a velocidade do knockback
 
 	#SE a vida do alvo for menor ou igual a zero
-	if _Alvo.Enemie_life <= 0.0:
+	if _Alvo.Enemie_life <= 0:
 
 		#mudo a quantidade pontos que ele dara comforme os atributos do projetil
 		_State.Meus_Estados["estadomorto"].Quantity_Points = Bullet.Points_Acresim #pontos

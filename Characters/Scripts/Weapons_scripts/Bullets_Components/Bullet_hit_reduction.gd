@@ -12,7 +12,7 @@ class_name HitReduction #reduzindo ao sofrer dano
 @export var Anim : AnimationPlayer
 
 #minha velocidade original
-var Original_vel : float = 2.5
+@export var Original_vel : float = 2.5
 
 #minha velocidade reduzida
 var Reduction_vel : float = 0.1

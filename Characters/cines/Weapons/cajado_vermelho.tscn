@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://c07rbei4fmklc"]
+[gd_scene load_steps=20 format=3 uid="uid://c07rbei4fmklc"]
 
 [ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_fm4fu"]
 [ext_resource type="PackedScene" uid="uid://cbckv6j5yghoy" path="res://Characters/cines/Weapons/Bullets/projetil_vermelho.tscn" id="2_8vgq3"]
 [ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="3_04oht"]
+[ext_resource type="PackedScene" uid="uid://bg2um8pconfq0" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/super_staff_red.tscn" id="3_31hfn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tapcu"]
 atlas = ExtResource("3_04oht")
@@ -111,6 +112,7 @@ size = Vector2(47, 8)
 [node name="Cajado vermelho" type="CharacterBody2D" node_paths=PackedStringArray("Anim", "Collision", "Ray", "Area", "Marker")]
 script = ExtResource("1_fm4fu")
 Bullet = ExtResource("2_8vgq3")
+Super_Bullet = ExtResource("3_31hfn")
 Buff_Super = 1.45
 Variant_Curve = Dictionary[String, float]({
 "Max_Curve": 0.3,
@@ -124,6 +126,7 @@ Buff_Damage = 75
 MAX_DELAY_WEAPON = 3.25
 Knock_bullet = 1.2
 Quantity_bullets = 3
+Quantity_Super = 3
 Shake_pistol = 1.25
 Vel_bullet = 2.5
 Glow_anim = &"glow"
