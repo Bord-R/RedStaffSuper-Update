@@ -13,46 +13,6 @@ shader = ExtResource("2_hy3li")
 shader_parameter/flash_cor = Color(1, 1, 1, 1)
 shader_parameter/float_flash = 0.0
 
-[sub_resource type="Animation" id="Animation_4hqlt"]
-resource_name = "init"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/flash_cor")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:material:shader_parameter/float_flash")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(2, 0.5), Vector2(0.8, 1.5), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_k1v0j"]
 length = 0.001
 tracks/0/type = "value"
@@ -210,6 +170,46 @@ tracks/3/keys = {
 "values": [Vector2(-8, 0), Vector2(-30, 0), Vector2(-15, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_4hqlt"]
+resource_name = "init"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_cor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/float_flash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 0.5), Vector2(0.8, 1.5), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lrlkm"]
 _data = {
 &"RESET": SubResource("Animation_k1v0j"),
@@ -225,6 +225,7 @@ MyTexture = NodePath("Sprite2D")
 HitBox = NodePath("HitBox")
 Anim = NodePath("Sprite2D/AnimationPlayer")
 Points = 50
+Points_Super = 1
 
 [node name="HitBox" type="Area2D" parent="."]
 
