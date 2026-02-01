@@ -1,8 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://bb27voy3dtvbf"]
+[gd_scene load_steps=20 format=3 uid="uid://bb27voy3dtvbf"]
 
 [ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_e6ftx"]
 [ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="2_7rrmo"]
 [ext_resource type="PackedScene" uid="uid://crtmfwgqacpgn" path="res://Characters/cines/Weapons/Bullets/projetil_azul.tscn" id="2_sck3f"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="4_sck3f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13ewu"]
+radius = 5.0
+height = 76.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5swl"]
+size = Vector2(72, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a5crt"]
 atlas = ExtResource("2_7rrmo")
@@ -101,13 +109,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13ewu"]
-radius = 5.0
-height = 76.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5swl"]
-size = Vector2(72, 11)
-
 [node name="Cajado Azul" type="CharacterBody2D" node_paths=PackedStringArray("Anim", "Collision", "Ray", "Area", "Marker")]
 script = ExtResource("1_e6ftx")
 Bullet = ExtResource("2_sck3f")
@@ -124,6 +125,7 @@ Buff_Damage = 50
 MAX_DELAY_WEAPON = 3.5
 Knock_bullet = 0.75
 Quantity_bullets = 5
+Quantity_Super = 2
 Shake_pistol = 2.5
 Vel_bullet = 4.25
 Glow_anim = &"glow"
@@ -134,14 +136,6 @@ Ray = NodePath("RayCast2D")
 Area = NodePath("Area2D")
 Marker = NodePath("Marker2D")
 metadata/_custom_type_script = "uid://b7crhf3qe5rfq"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(90, -2)
-sprite_frames = SubResource("SpriteFrames_ltg5q")
-animation = &"glow"
-autoplay = "use"
-frame = 4
-frame_progress = 0.72940683
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(87, 0)
@@ -161,3 +155,17 @@ shape = SubResource("RectangleShape2D_i5swl")
 position = Vector2(50, 1)
 target_position = Vector2(75, -1)
 hit_from_inside = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(90, -2)
+sprite_frames = SubResource("SpriteFrames_ltg5q")
+animation = &"glow"
+autoplay = "use"
+frame = 4
+frame_progress = 0.72940683
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(110, -3)
+color = Color(0.57254905, 0.21960784, 1, 1)
+texture = ExtResource("4_sck3f")
+texture_scale = 0.6

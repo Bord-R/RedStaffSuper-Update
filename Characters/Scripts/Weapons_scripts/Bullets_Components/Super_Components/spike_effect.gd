@@ -183,12 +183,12 @@ func Interpolate_Radius(_time, _max_radius): # / _tempo / _raio_maximo/
     Radius_Tween = create_tween().bind_node(self) #crio tween e conecto ele a mim 
 
     #definindo o tipo de transição
-    Radius_Tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+    Radius_Tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 
     Radius_Tween.set_loops(-1) #animação rodara em loop
 
     #raio contrai
-    Radius_Tween.tween_property(self,"Radius", _max_radius/1.5, _time)
+    Radius_Tween.tween_property(self,"Radius", _max_radius/1.8, _time)
 
     #raio expande
     Radius_Tween.tween_property(self,"Radius", _max_radius, _time)

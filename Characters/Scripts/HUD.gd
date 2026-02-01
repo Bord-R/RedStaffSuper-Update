@@ -102,22 +102,25 @@ var Bool_life : bool = true
 var Bool_maid : bool = false
 
 #animação de rotação
-var Tween_Rot
+var Tween_Rot : Tween = null
 
 #tempo que life fica girando para um lado
 var Seg_Life : float = 2.0
 
 #animação de confirmação
-var Tween_Submmit
+var Tween_Submmit : Tween = null
 
 #animação de aparecer
-var Tween_aparicion 
+var Tween_aparicion : Tween = null
 
 #tween de quando o player morrer
-var  Tween_Dead
+var  Tween_Dead : Tween = null
 
 #distancia atual do mouse
 var dist_mouse : float = 0.0
+
+#variavel para facilitar os comandos
+var IsHelped : bool = false
 
 #endregion
 
@@ -128,7 +131,7 @@ func _ready() -> void:
 
 	#SE o line Code existir eu conecto o sinal ao método
 	if Line_Code: VM.Conected_Signals(Line_Code.text_submitted, Enter_text)
-
+	
 	Animated_Life() #rodando método para animar o node life
 
 ################################################################################
@@ -282,16 +285,31 @@ func Transparent_Dist_Mouse(_node : Sprite2D):
 	#pegando a distancia de _node até o local do mouse
 	dist_mouse = _node.global_position.distance_to(_node.get_global_mouse_position())
 
-	#SE a distancia do mouse for maiorou igual que a distancia minima
+	#crio um tween local que mudara minha transparencia
+	var _tween_alpha : Tween = null
+
+	#SE a distancia do mouse for maior ou igual que a distancia minima
 	if dist_mouse >= MIN_MOUSE_DIST:
+		
+		if _tween_alpha: _tween_alpha.kill() #SE esse tween existe, eu deleto ele
+
+		_tween_alpha = create_tween().bind_node(_node) #crio tween e conecto ele a mim
+
+		_tween_alpha.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR) #defino o tipo de transição
 
 		#a transparencia de _node fica normal
-		_node.modulate = NORMAL_TRANSPARENT
+		_tween_alpha.parallel().tween_property(_node, "modulate", NORMAL_TRANSPARENT, SEGS["COMUM"])
 
 		return #retorna caso seja verdadeiro
 
+	if _tween_alpha: _tween_alpha.kill() #SE esse tween existe, eu deleto ele
+
+	_tween_alpha = create_tween().bind_node(_node) #crio tween e conecto ele a mim
+
+	_tween_alpha.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR) #defino o tipo de transição
+
 	#a transparencia é modificada
-	_node.modulate = MOD_TRANSPARENT
+	_tween_alpha.parallel().tween_property(_node, "modulate", MOD_TRANSPARENT, SEGS["COMUM"])
 	
 ################################################################################
 
@@ -302,6 +320,8 @@ func DEBUG_Mode():
 	if Input.is_action_just_pressed("DEBUG_MODE"):
 		#eu troco o valor de debug active
 		Game.DEBUG_Active = !Game.DEBUG_Active
+
+		Game.Current_Mode = "" #fico com o texto vazio
 
 	#SE debug active for verdadeiro
 	if Game.DEBUG_Active and !Game.Player_Dead:
@@ -374,12 +394,12 @@ func Enter_text(_text : String):
 
 	#cadeia de códigos
 
-	if _text == "PEAR_GOAT01":
+	if _text == "PEAR_GOAT01" or (IsHelped and _text == "1"):
 		Game.Super_Bonus = Game.MAX_SUPER_BONUS #código de super
 
 		Game.Current_Mode = "SUPER_MAX" #meu modo de jogo
 
-	elif _text == "BIG_LMAO02":
+	elif _text == "BIG_LMAO02" or (IsHelped and _text == "2"):
 
 		Game.Vel_Active = !Game.Vel_Active #código de supervelocidade
 
@@ -399,26 +419,26 @@ func Enter_text(_text : String):
 
 		Mod_Text(Game.Vel_Active, "I_SHOW_SPEED_MODE")
 
-	elif _text == "LITTLE_APPLE03":
+	elif _text == "LITTLE_APPLE03" or (IsHelped and _text == "3"):
 
 		Game.Invincible_Active = !Game.Invincible_Active #código de super
 
 		Mod_Text(Game.Invincible_Active, "INVINCIBLE_MODE")
 
-	elif _text == "ROTTEN_AVOCADO04":
+	elif _text == "ROTTEN_AVOCADO04" or (IsHelped and _text == "4"):
 		
 		Bool_maid = !Bool_maid #código de skin maid uwu
 
 		#troco a skin atual do player5
 		Swap_Skin(Bool_maid, Maid_Skin, 4, 5, "MAID_MODE_UWU")
 
-	elif _text == "FAT_PINEAPPLE05":
+	elif _text == "FAT_PINEAPPLE05" or (IsHelped and _text == "5"):
 
-		Game.Previous_Coins = Game.MAX_COIN_BONUS #código de pontos
+		Game.Acresim_Points(Game.MAX_COIN_BONUS) #código de pontos
 
 		Game.Current_Mode = "COIN_MAX" #meu modo de jogo
 
-	elif _text == "I_LOVE...06":
+	elif _text == "I_LOVE...06" or (IsHelped and _text == "6"):
 
 		Player.Dano_sofrido = true #o player sofre dano
 
@@ -427,6 +447,12 @@ func Enter_text(_text : String):
 		Player.animação("hit") #player executa animação
 
 		Player.Player_life = 0 #código de matar o player
+
+	elif _text == "HELP_ME07" or (IsHelped and _text == "7"):
+		
+		IsHelped = !IsHelped #mudo o valor de IsHelped
+
+		Game.Current_Mode = "NOOB_MODE" #modo noob
 
 	else: #SE NÃO
 

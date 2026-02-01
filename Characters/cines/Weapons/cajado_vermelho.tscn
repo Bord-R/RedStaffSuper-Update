@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://c07rbei4fmklc"]
+[gd_scene load_steps=21 format=3 uid="uid://c07rbei4fmklc"]
 
 [ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_fm4fu"]
 [ext_resource type="PackedScene" uid="uid://cbckv6j5yghoy" path="res://Characters/cines/Weapons/Bullets/projetil_vermelho.tscn" id="2_8vgq3"]
 [ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="3_04oht"]
 [ext_resource type="PackedScene" uid="uid://bg2um8pconfq0" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/super_staff_red.tscn" id="3_31hfn"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="5_jqrf4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tapcu"]
 atlas = ExtResource("3_04oht")
@@ -145,6 +146,14 @@ animation = &"glow"
 autoplay = "glow"
 frame = 2
 frame_progress = 0.69203454
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(17, 1.000001)
+rotation = -3.1415925
+scale = Vector2(0.60334796, 0.57958025)
+color = Color(0.94509804, 0.35802227, 0.42161557, 0.654902)
+energy = 1.5
+texture = ExtResource("5_jqrf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(55, 0)

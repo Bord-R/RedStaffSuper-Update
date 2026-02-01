@@ -48,7 +48,6 @@ func _ready() -> void:
 
 	#conectando o sinal ao método
 	VM.Conected_Signals(Menu_bottom.button_up, _on_menu_button_up)
-	
 
 ################################################################################
 
@@ -84,6 +83,8 @@ func Tween_Objects(_first : float = 0.0, _second : float = 0.0, _third : float =
 	#agora esse tween é liberado da mémoria junto de mim
 	Tween_GameOver.bind_node(self)
 
+	Tween_GameOver.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC) #modifico o tipo de transição
+
 	#meu backgroud fica visivel
 	Tween_GameOver.parallel().tween_property(BackGroud, "color", BGCOLOR_NORMAL, _first)
 
@@ -112,9 +113,10 @@ func Animated_Light():
 
 ################################################################################
 
+#método que ativa quando o sinal button up for ativado
 func _on_menu_button_up() -> void:
 
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene() #reinicia o game
 
 ################################################################################
 

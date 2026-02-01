@@ -96,17 +96,17 @@ var anim_atual : String
 #boleano que vereficara se eu tomei dano
 var Dano_sofrido : bool = false
 
-#boleano que vereficara a interpolação
-var Invincible_bool : bool = true
-
 #valor de interpolação
 var Interpolation : float = 0.0
+
+#boleano que vera se eu posso mudar interpolation
+var Is_AcresimIterpolation : bool = true
 
 #tempo de invencibilidade
 var Invincible_time : float = 0.0
 
 #variavel responsavel pro criar um efeito de fade out para o node backgroud fake
-var Tween_Backfade
+var Tween_Backfade : Tween
 
 #endregion
 
@@ -151,9 +151,9 @@ func _physics_process(_delta: float) -> void:
 		
 		#método para me mover comforme a variavel "velocity"
 		move_and_slide()
-		
+
 		#método que me deixara invensivel
-		Invincible_Time(0.75, 0.0, 0.05)
+		Invincible_Time(0.75, 0.25, 0.05)
 
 		#método que mostrara meu modo de jogo atual
 		Game_Mode_label()
@@ -184,12 +184,9 @@ func movimentacao():
 		Input.get_axis("ui_up","ui_down")
 		) 
 	
-	#mudando a direção da minha sprite
-	#SE minha direção no eixo x NÃO FOR igual a 0, a escala da minha "texture"
-	# no eixo x vai ser igual minha direção no eixo x
-	if direction.x != 0:
-		$texture.scale.x = direction.x
-	
+	if sign(velocity.x) < 0.0: texture.flip_h = true #SE velocity for maior que 0, viro pra direita
+	else: texture.flip_h = false #SE NÃO, viro pra esquerda
+
 	#SE eu não estou sofrendo dano, eu executo o código
 	if !Dano_sofrido:
 		
@@ -220,45 +217,34 @@ func animação(_nova_anim : String):
 		
 		#minha animação atual é igual a nova animação
 		anim_atual = _nova_anim
-	
+
 	#toco a animação atual
 	animate.play(anim_atual)
 
 ################################################################################
 
 #método que dara o tempo de invensibilidade
-func Invincible_Time(_Max_value : float, _Min_value : float, _Value  : float):
+func Invincible_Time(_max_value : float, _min_value : float, _value  : float):
 	
-	#SE time for maior que 0, eu executo o código
+	#SE time for menor que 0
 	if Invincible_time > 0.0:
-		
-		#diminuo o timer
-		Invincible_time -= _Value
-		
-		#SE a bolena abaixo for verdadeira, eu...
-		if Invincible_bool:
-			
-			#diminuo o valor de interpolação
-			Interpolation -= _Value
-			
-			#SE a interpolação for menor ou igual que o valor minimo
-			if Interpolation <= _Min_value: Invincible_bool = false #a boleana se torna falsa
-		
-		#SE NÃO, SE a boleana abaixo for falsa, eu...
-		elif !Invincible_bool:
-			
-			#aumento minha interpolação
-			Interpolation += _Value
-			
-			#SE a interpolação for maior ou menor que o valor maximo
-			if Interpolation >= _Max_value: Invincible_bool = true #a boleana se torna verdadeira
-	
-	#SE NÃO, eu executo o código
-	else:
-		
-		#interpolação é zerada
-		Interpolation = 0.0
-	
+
+		Invincible_time -= _value #diminuo o timer
+
+	else: Interpolation = 0.0 #SE NÃO, eu zero o timer
+
+	if Is_AcresimIterpolation: #SE posso aumentar interpolation
+
+		Interpolation += _value #aumento interpolation
+
+		if Interpolation >= _max_value: Is_AcresimIterpolation = false #SE interpolation for maior ou igual a max value, deixo de poder aumentar
+
+	elif not Is_AcresimIterpolation: #SE NÃO, SE eu NÃO posso modificar interpolation
+
+		Interpolation -= _value #diminuo interpolation
+
+		if Interpolation <= _min_value: Is_AcresimIterpolation = true #SE interpolation for menor ou igual a min value, volto a poder aumentar interpolation
+
 	#mudando a cor do meu shader
 	texture.material.set("shader_parameter/flash_cor", COR_INVINCIBLE)
 	

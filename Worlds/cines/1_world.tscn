@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://yuw8ty4qni6i"]
+[gd_scene load_steps=13 format=4 uid="uid://yuw8ty4qni6i"]
 
 [ext_resource type="TileSet" uid="uid://1s707n68byqp" path="res://Worlds/tiles/1_world.tres" id="1_m4dxa"]
 [ext_resource type="Script" uid="uid://bmo70jsanelwe" path="res://Characters/Scripts/Camera.gd" id="2_7jtqy"]
@@ -8,8 +8,32 @@
 [ext_resource type="PackedScene" uid="uid://b4rgxx3biwmm5" path="res://Characters/cines/maça.tscn" id="7_te4ok"]
 [ext_resource type="PackedScene" uid="uid://c7pb8a4cumr27" path="res://Characters/cines/Weapons/Basic_Pistol.tscn" id="8_3803g"]
 [ext_resource type="PackedScene" uid="uid://giu8lit01pvb" path="res://Characters/cines/Weapons/bazuca.tscn" id="9_m4yvn"]
+[ext_resource type="PackedScene" uid="uid://bb27voy3dtvbf" path="res://Characters/cines/Weapons/cajado_azul.tscn" id="9_mlg53"]
 [ext_resource type="PackedScene" uid="uid://c07rbei4fmklc" path="res://Characters/cines/Weapons/cajado_vermelho.tscn" id="10_m4yvn"]
 [ext_resource type="PackedScene" uid="uid://dvrw7o6fjbjv6" path="res://Characters/cines/HUD.tscn" id="11_m4yvn"]
+
+[sub_resource type="Environment" id="Environment_3803g"]
+resource_local_to_scene = true
+background_mode = 3
+background_canvas_max_layer = 3
+sky_rotation = Vector3(0, 0.49218285, 0)
+ambient_light_sky_contribution = 0.0
+tonemap_mode = 1
+tonemap_exposure = 0.32
+tonemap_white = 0.8
+sdfgi_bounce_feedback = 0.88
+sdfgi_normal_bias = 2.0
+glow_enabled = true
+glow_intensity = 0.3
+glow_bloom = 1.0
+glow_hdr_scale = 0.2
+glow_hdr_luminance_cap = 4.0
+fog_depth_curve = 3.605001
+fog_depth_begin = 373.6
+fog_depth_end = 373.6
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_saturation = 1.2
 
 [node name="1World" type="Node2D"]
 y_sort_enabled = true
@@ -76,6 +100,18 @@ position = Vector2(-717, -561)
 [node name="Maça8" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
 position = Vector2(-889, -742)
 
+[node name="Maça9" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
+position = Vector2(-2000, 455)
+
+[node name="Maça10" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
+position = Vector2(-1863, 337)
+
+[node name="Maça11" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
+position = Vector2(-1999.0001, 95.00001)
+
+[node name="Maça12" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
+position = Vector2(-613, 413)
+
 [node name="Pistols" type="Node" parent="Characters"]
 
 [node name="Double_pistol" parent="Characters/Pistols" instance=ExtResource("5_afuis")]
@@ -102,8 +138,11 @@ position = Vector2(-974, 444)
 [node name="Cajado vermelho" parent="Characters/Pistols" instance=ExtResource("10_m4yvn")]
 position = Vector2(-1857.0945, 46.367645)
 
-[node name="CajadoVerde3" parent="Characters/Pistols" instance=ExtResource("7_ei01c")]
-position = Vector2(-85.856445, -56.253967)
+[node name="Cajado vermelho2" parent="Characters/Pistols" instance=ExtResource("10_m4yvn")]
+position = Vector2(-84, -115)
+
+[node name="Cajado Azul" parent="Characters/Pistols" instance=ExtResource("9_mlg53")]
+position = Vector2(-116, -58)
 
 [node name="Player_body" parent="Characters" node_paths=PackedStringArray("Screen_shake") instance=ExtResource("2_s8sl4")]
 unique_name_in_owner = true
@@ -113,3 +152,6 @@ Screen_shake = NodePath("../../MyCamera")
 [node name="HUD" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("11_m4yvn")]
 visible = false
 Player = NodePath("../Characters/Player_body")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3803g")

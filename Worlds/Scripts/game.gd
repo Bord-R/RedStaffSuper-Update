@@ -23,7 +23,7 @@ extends Node
 const MAX_SUPER_BONUS : int = 8
 
 #minha quantidade maxima de pontos moedas
-const MAX_COIN_BONUS : int = 100_000_000
+const MAX_COIN_BONUS : int = 10_000_000
 
 #tempo dos tween 
 const SEG_TWEEN : float = 0.5

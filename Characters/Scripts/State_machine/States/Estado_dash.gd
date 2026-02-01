@@ -122,12 +122,16 @@ func Saida():
 #método que criara o efeito
 func Create_Effect():
 	
+	var _light = PointLight2D.new() #criando efeito de bilho
+
 	#criando instancia
-	var _Create_Effect = DashEffect.new(Sprite2d.global_position, Sprite2d.scale, Sprite2d.texture)
+	var _Create_Effect = DashEffect.new(Sprite2d.global_position, Sprite2d.scale, Sprite2d.texture, _light, Color.RED, 2.0)
 	
 	#mudando o corte de cada frame
 	_Create_Effect.hframes = Sprite2d.hframes
 	_Create_Effect.vframes = Sprite2d.vframes
+
+	_light.texture = load("res://Characters/Sprites/Sprite-BlurEffect.png") #coloco uma textura no ponto de luz
 	
 	#mudando a direção do efeito
 	_Create_Effect.flip_h = Character.Image_texture.flip_h
@@ -137,6 +141,9 @@ func Create_Effect():
 	
 	#adcionando a instancia como filha da cena atual
 	get_tree().current_scene.add_child(_Create_Effect)
+
+	#adiciono como filho da instancia
+	_Create_Effect.add_child(_light)
 
 ################################################################################
 

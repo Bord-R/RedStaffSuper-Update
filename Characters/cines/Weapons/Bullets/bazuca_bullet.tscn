@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0lfueamj0fbo"]
+[gd_scene load_steps=15 format=3 uid="uid://c0lfueamj0fbo"]
 
 [ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_13pfk"]
 [ext_resource type="PackedScene" uid="uid://dnh6xhob4rij6" path="res://Characters/cines/Weapons/Bullets/bazuca_explodion.tscn" id="2_ofb1p"]
 [ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_e7cje"]
 [ext_resource type="Texture2D" uid="uid://b38hw1tlyhfg4" path="res://Characters/Sprites/pistols/bullets/Sprite-bazuca_bullet.png" id="3_elu8g"]
 [ext_resource type="Script" uid="uid://i87op1aaympn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_normal_mov.gd" id="5_elu8g"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="5_gjs7b"]
 [ext_resource type="Script" uid="uid://lieq52u44q58" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_impulse_mov.gd" id="6_3nvu7"]
 [ext_resource type="Script" uid="uid://cc8s3ipraawh5" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_walls.gd" id="7_rwh8t"]
 [ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="8_571wa"]
@@ -50,9 +51,34 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/PointLight2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.57254905, 1, 0.41960785, 0.75686276)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_e7cje"]
 resource_name = "start"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -72,7 +98,7 @@ tracks/1/path = NodePath("Sprite2D:material:shader_parameter/float_flash")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
@@ -84,10 +110,34 @@ tracks/2/path = NodePath("Sprite2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(0.2, 2), Vector2(2, 0.5), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1.3, 0.7), Vector2(0.7, 1.3), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/PointLight2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.2426889, 0.07759547, 0.75686276), Color(0.57254905, 1, 0.41960785, 0.75686276)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3nvu7"]
@@ -128,6 +178,11 @@ autoplay = "start"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_elu8g")
 texture = ExtResource("3_elu8g")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+scale = Vector2(0.8958334, 0.5)
+color = Color(0.57254905, 1, 0.41960785, 0.75686276)
+texture = ExtResource("5_gjs7b")
 
 [node name="CollidedWalls" type="Node" parent="."]
 script = ExtResource("7_rwh8t")

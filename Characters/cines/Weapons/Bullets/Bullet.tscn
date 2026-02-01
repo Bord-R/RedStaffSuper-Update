@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://6aeke02umjjw"]
+[gd_scene load_steps=15 format=3 uid="uid://6aeke02umjjw"]
 
 [ext_resource type="Texture2D" uid="uid://dufm7d6kronb8" path="res://Characters/Sprites/pistols/bullets/Sprite-Bullets.png" id="1_5k1nm"]
 [ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_s44fd"]
 [ext_resource type="PackedScene" uid="uid://be8nc3qt5bik4" path="res://Characters/cines/Weapons/Bullets/Bullet_explodion.tscn" id="2_jlfr4"]
 [ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_i48lq"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="5_65et0"]
 [ext_resource type="Script" uid="uid://i87op1aaympn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_normal_mov.gd" id="5_c0ctj"]
 [ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="5_qqgx7"]
 [ext_resource type="Script" uid="uid://lieq52u44q58" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_impulse_mov.gd" id="6_ihpn7"]
@@ -53,6 +54,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.96052986, 1, 0.6604482, 0.47843137)]
+}
 
 [sub_resource type="Animation" id="Animation_703ft"]
 resource_name = "start"
@@ -64,10 +89,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(2, 0.5), Vector2(0.5, 1.5), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(0.7, 1.3), Vector2(1.3, 0.7), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -92,6 +117,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26676667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.5, 1.0, 0.7]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.79246557, 0.19277555, 1, 0.827451), Color(0.96052986, 1, 0.6604482, 0.47843137)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c0ctj"]
@@ -124,6 +173,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_c0ctj")
 }
 autoplay = "start"
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+color = Color(0.96052986, 1, 0.6604482, 0.47843137)
+energy = 0.7
+texture = ExtResource("5_65et0")
+texture_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wilq1")

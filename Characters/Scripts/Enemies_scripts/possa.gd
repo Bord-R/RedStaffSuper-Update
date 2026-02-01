@@ -5,6 +5,8 @@ extends Area2D
 #minha Sprite2d
 @export var Texture2d : Sprite2D
 
+const COLOR = Color(1.0, 0.521, 0.0,1.0) #minha cor
+
 #valor a ser subtraido
 const PMINOS_TIMER : float = 0.05 #5%
 
@@ -57,8 +59,8 @@ func _process(_delta: float) -> void:
 			#me deleto
 			queue_free()
 	
-	#a cor da minha textura igual Color(0.977, 0.521, 0.0, 1.0) com a variavel subtituindo o Alpha
-	Texture2d.modulate = Color(1, 0.521, 0.0, alpha)
+	#a cor da minha textura fica transparente 
+	Texture2d.modulate = Color(COLOR.r, COLOR.g, COLOR.b, alpha)
 
 ################################################################################
 
