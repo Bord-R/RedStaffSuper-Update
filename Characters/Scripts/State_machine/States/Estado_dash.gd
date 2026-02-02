@@ -125,7 +125,7 @@ func Create_Effect():
 	var _light = PointLight2D.new() #criando efeito de bilho
 
 	#criando instancia
-	var _Create_Effect = DashEffect.new(Sprite2d.global_position, Sprite2d.scale, Sprite2d.texture, _light, Color.RED, 2.0)
+	var _Create_Effect = DashEffect.new(Sprite2d.global_position, Character.scale, Sprite2d.texture, _light, Color.RED, 2.0)
 	
 	#mudando o corte de cada frame
 	_Create_Effect.hframes = Sprite2d.hframes

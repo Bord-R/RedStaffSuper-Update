@@ -79,38 +79,30 @@ func Area_Collided( _area : Area2D):
 			if !Atual_State is EstadoHit and !Atual_State is EstadoDash:
 
 				#aplico o dano
-				Aplicate_Damage(Enemy, Enemy.Maquina_estados)
+				Aplicate_Damage(Enemy)
 
 		elif Restriction_State == false: #SE NÃO (ou seja, se eu posso só dar dano sem restrições)
 
 			#aplico o dano
-			Aplicate_Damage(Enemy, Enemy.Maquina_estados)
+			Aplicate_Damage(Enemy)
 
 		Auto_Destroy(Destroy_Bool) #destruo o projetil se eu tiver permição
 
 ################################################################################
 
 #método que aplicara dano do inimigo
-#parametros,_Alvo : meu alvo,_State : só pra simplificar as chamadas
-func Aplicate_Damage(_Alvo : EnemiesFruits, _State : MaquinaEstados):
+#parametros,_Alvo : meu alvo
+func Aplicate_Damage(_Alvo : EnemiesFruits):
 
-	#aplicando o dano kkkkkkkkkkk
-	_Alvo.Enemie_life -= Bullet.Damage
+	#chamo o método do alvo para ele tomar dano
+	_Alvo.Take_Damaged(
+		Bullet.Damage,
+		Bullet.global_position,
+		Bullet.Knockback,
+		Bullet.Super_Acresim,
+		Bullet.Points_Acresim
+	)
 
-	#trocando o estado do inimigo 
-	_State.Troca_Estado(Hit_State)
-
-	#mudo o valor variaveis do estado inimigo recem iniciado
-	_State.Meus_Estados[Hit_State].Knock_dir = Bullet.global_position #mudando a direção do knockback
-	_State.Meus_Estados[Hit_State].Knock_vel = Bullet.Knockback #mudando a velocidade do knockback
-
-	#SE a vida do alvo for menor ou igual a zero
-	if _Alvo.Enemie_life <= 0:
-
-		#mudo a quantidade pontos que ele dara comforme os atributos do projetil
-		_State.Meus_Estados["estadomorto"].Quantity_Points = Bullet.Points_Acresim #pontos
-		_State.Meus_Estados["estadomorto"].Quantity_Super = Bullet.Super_Acresim #Super
-	
 ################################################################################
 
 #método que ira destroir o projetil

@@ -5,6 +5,8 @@ class_name EnemiesFruits
 
 #region Variables
 
+signal Damaged()
+
 #player
 @onready var player = owner.get_node("%Player_body")
 
@@ -33,7 +35,10 @@ var Effect : bool = false
 var distance_player : float
 
 #vida do inimigo
-var Enemie_life : int
+var Enemie_life : int :
+	#defido como uma variavel do tipo setter (definir)
+	set(value): #toda vez que eu mudo o valor dessa variavel
+		Enemie_life = value #ela é atualizada
 
 #direção do inimigo
 var Enemie_direction : Vector2
@@ -86,6 +91,35 @@ func Flip_Direcao():
 
 	#minha imagem fica voltada para a direita
 	Image_texture.flip_h = false
+
+################################################################################
+
+#criando um método que fara eu tomar dano
+func Take_Damaged(
+	_damage : int,
+	_knock_dir : Vector2,
+	_knock_vel : float,
+	_acresim_super : int,
+	_acresim_points : float
+	):
+	
+	Enemie_life -= _damage #tomo dano
+
+	Maquina_estados.Troca_Estado("estadohit") #vou para o estado de hit
+
+	Maquina_estados.Meus_Estados["estadohit"].Knock_dir = _knock_dir #mudo a direção do hit
+
+	Maquina_estados.Meus_Estados["estadohit"].Knock_vel = _knock_vel #mudo a velocidade do hit
+	
+	Damaged.emit() #emito o sinal que eu tomei dano
+
+	if Enemie_life <= 0: #SE minha vida acabar
+
+		#mudo a quantidade de pontos que eu darei
+		Maquina_estados.Meus_Estados["estadomorto"].Quantity_Points = _acresim_points
+
+		#mudo a quantidade de pontos de super que darei
+		Maquina_estados.Meus_Estados["estadomorto"].Quantity_Super = _acresim_super
 
 ################################################################################
 

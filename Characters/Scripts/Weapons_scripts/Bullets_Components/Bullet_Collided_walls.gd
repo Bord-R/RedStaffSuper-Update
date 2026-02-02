@@ -6,7 +6,9 @@ class_name CollidedWalls #colidindo com as paredes
 #region Variables
 
 #exportando para o inspetor
-@export var FORCE_SHAKE : float
+@export var FORCE_SHAKE : float = 1.0
+
+@export var IsDeleteDaddy : bool = true #boleano que vera se eu posso deletar meu pai
 
 #referencia ao node pai
 @onready var Bullet : Bala = get_parent() #variavel exclusiva do método
@@ -36,8 +38,8 @@ func Colidindo(_Corpo : Node2D):
 		#ativo o screen shake 
 		Bullet.Screen_shake.trigger_shake(FORCE_SHAKE)
 		
-		#usando método do pai
-		Bullet.Effect_explodion() #esse deleta o pai
+		#SE eu posso deletar meu pai, eu deleto ele
+		if IsDeleteDaddy: Bullet.Effect_explodion()
 
 ################################################################################
 

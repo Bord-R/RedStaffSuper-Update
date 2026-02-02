@@ -138,29 +138,22 @@ func HitBox_On(_area : Area2D):
     #SE o pai de _area for um enemiefruits
     if _area.get_parent() is EnemiesFruits:
 
-        #SE o estado atual do inimigo for hit, retorna
-        if _area.get_parent().Maquina_estados.Estado_Atual is EstadoHit: return
-
-        #crio variaveis locais para facilitar as chamadas
+         #crio variaveis locais para facilitar as chamadas
         var _enemy : EnemiesFruits = _area.get_parent() #inimigo
-        var _mc_state_enemy : MaquinaEstados = _enemy.Maquina_estados #state machine
+
+        #SE o estado atual do inimigo for hit, retorna
+        if _enemy.Maquina_estados.Estado_Atual is EstadoHit: return
 
         Camera.trigger_shake(SHAKE) #tremo a tela
 
-        _enemy.Enemie_life -= DAMAGE #aplico o dano
-
-        _mc_state_enemy.Troca_Estado("estadohit") #troco o estado
-
-        #mudo o valor variaveis do estado inimigo recem iniciado
-        _mc_state_enemy.Meus_Estados["estadohit"].Knock_dir = global_position #direção do knockback
-        _mc_state_enemy.Meus_Estados["estadohit"].Knock_vel = KNOCKBACK #velocidade do knockback
-
-        #SE a vida do inimigo for menor ou igual a 0
-        if _enemy.Enemie_life <= 0:
-
-            #mudo a quantidade de pontos que ele dara comforme minhas variaveis
-            _mc_state_enemy.Meus_Estados["estadomorto"].Quantity_Points = Points #pontos
-            _mc_state_enemy.Meus_Estados["estadomorto"].Quantity_Super = Points_Super # pontos de super
+        #faço ele tomar dano
+        _enemy.Take_Damaged(
+            DAMAGE,
+            global_position,
+            KNOCKBACK,
+            Points_Super,
+            Points
+        )
 
         if Life > 0: #SE a vida for maior que 0
             Anim.play("hit") #rodo hit

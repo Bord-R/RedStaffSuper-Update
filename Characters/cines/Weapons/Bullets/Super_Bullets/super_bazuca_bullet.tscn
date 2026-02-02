@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://u7v5ta03t4e2"]
+[gd_scene load_steps=15 format=3 uid="uid://u7v5ta03t4e2"]
 
 [ext_resource type="Script" uid="uid://cl4gm32xheimw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bullet.gd" id="1_csxqy"]
 [ext_resource type="Texture2D" uid="uid://d1c8fdxvctamv" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Sprite-Super_Bazuca_Bullet.png" id="2_gt7qy"]
-[ext_resource type="PackedScene" uid="uid://dnh6xhob4rij6" path="res://Characters/cines/Weapons/Bullets/bazuca_explodion.tscn" id="2_y2bs3"]
+[ext_resource type="PackedScene" uid="uid://b5jwqa1c7hqba" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/Super_Effect/bazuca_super_explodion.tscn" id="2_y2bs3"]
 [ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_y2bs3"]
 [ext_resource type="Script" uid="uid://i87op1aaympn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_normal_mov.gd" id="5_5btir"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="5_wikkj"]
 [ext_resource type="Script" uid="uid://lieq52u44q58" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_impulse_mov.gd" id="6_176pp"]
 [ext_resource type="Script" uid="uid://bm7gps7pilfnn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/Super_freeze.gd" id="7_ku7ld"]
 [ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="8_vapqu"]
@@ -55,6 +56,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/PointLight2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.57254905, 1, 0.41960785, 0.75686276)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_6xnh7"]
 resource_name = "start"
@@ -95,6 +120,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.5, 1.5), Vector2(1.5, 0.5), Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/PointLight2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.19474521),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.57254905, 1, 0.41960785, 0.75686276)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.19947234),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uxc1p"]
 _data = {
@@ -115,6 +164,12 @@ metadata/_custom_type_script = "uid://cl4gm32xheimw"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_x7aj1")
 texture = ExtResource("2_gt7qy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(-0.5000026, 2.3841858e-07)
+scale = Vector2(1.3958334, 0.6666666)
+color = Color(0.57254905, 1, 0.41960785, 0.75686276)
+texture = ExtResource("5_wikkj")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-21, 6)
@@ -151,4 +206,4 @@ Restriction_State = false
 Shake = 10.0
 metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="queue_free"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="Effect_explodion"]

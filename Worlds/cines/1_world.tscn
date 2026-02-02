@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://yuw8ty4qni6i"]
+[gd_scene load_steps=15 format=4 uid="uid://yuw8ty4qni6i"]
 
 [ext_resource type="TileSet" uid="uid://1s707n68byqp" path="res://Worlds/tiles/1_world.tres" id="1_m4dxa"]
 [ext_resource type="Script" uid="uid://bmo70jsanelwe" path="res://Characters/Scripts/Camera.gd" id="2_7jtqy"]
 [ext_resource type="PackedScene" uid="uid://dmtl1waqweci7" path="res://Characters/cines/player_body.tscn" id="2_s8sl4"]
+[ext_resource type="PackedScene" uid="uid://blphe5l6isw5x" path="res://Characters/cines/bar_life.tscn" id="5_80os3"]
 [ext_resource type="PackedScene" uid="uid://caegqk04ioy56" path="res://Characters/cines/Weapons/double_pistol.tscn" id="5_afuis"]
 [ext_resource type="PackedScene" uid="uid://dbrg3bafyvxoa" path="res://Characters/cines/Weapons/cajado_verde.tscn" id="7_ei01c"]
 [ext_resource type="PackedScene" uid="uid://b4rgxx3biwmm5" path="res://Characters/cines/maça.tscn" id="7_te4ok"]
@@ -11,6 +12,19 @@
 [ext_resource type="PackedScene" uid="uid://bb27voy3dtvbf" path="res://Characters/cines/Weapons/cajado_azul.tscn" id="9_mlg53"]
 [ext_resource type="PackedScene" uid="uid://c07rbei4fmklc" path="res://Characters/cines/Weapons/cajado_vermelho.tscn" id="10_m4yvn"]
 [ext_resource type="PackedScene" uid="uid://dvrw7o6fjbjv6" path="res://Characters/cines/HUD.tscn" id="11_m4yvn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlg53"]
+resource_local_to_scene = true
+bg_color = Color(0.34765625, 0.01628526, 0.22250584, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16796875, 0.030626265, 0.13186091, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="Environment" id="Environment_3803g"]
 resource_local_to_scene = true
@@ -79,9 +93,6 @@ y_sort_enabled = true
 [node name="Maça4" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
 position = Vector2(-107.00001, 903)
 
-[node name="Maça" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
-position = Vector2(972, 142)
-
 [node name="Maça2" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
 position = Vector2(-891, 615)
 
@@ -111,6 +122,19 @@ position = Vector2(-1999.0001, 95.00001)
 
 [node name="Maça12" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
 position = Vector2(-613, 413)
+
+[node name="Maça" parent="Characters/Enemies" instance=ExtResource("7_te4ok")]
+position = Vector2(963.8259, 112.22038)
+
+[node name="BarLife" parent="Characters/Enemies/Maça" node_paths=PackedStringArray("Daddy") instance=ExtResource("5_80os3")]
+offset_left = -38.97908
+offset_top = -41.93077
+offset_right = 36.02092
+offset_bottom = -36.93077
+theme_override_styles/background = SubResource("StyleBoxFlat_mlg53")
+max_value = 20.0
+value = 20.0
+Daddy = NodePath("..")
 
 [node name="Pistols" type="Node" parent="Characters"]
 
@@ -143,6 +167,12 @@ position = Vector2(-84, -115)
 
 [node name="Cajado Azul" parent="Characters/Pistols" instance=ExtResource("9_mlg53")]
 position = Vector2(-116, -58)
+
+[node name="CajadoVerde3" parent="Characters/Pistols" instance=ExtResource("7_ei01c")]
+position = Vector2(22, -56)
+
+[node name="Bazuca2" parent="Characters/Pistols" instance=ExtResource("9_m4yvn")]
+position = Vector2(-190, -58)
 
 [node name="Player_body" parent="Characters" node_paths=PackedStringArray("Screen_shake") instance=ExtResource("2_s8sl4")]
 unique_name_in_owner = true

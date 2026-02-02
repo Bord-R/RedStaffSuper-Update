@@ -3,10 +3,10 @@ extends EnemiesFruits
 #region Variables
 
 #minha velocidade maxima
-const MAX_VEL : float = 60.0
+@export var MAX_VEL : float = 60.0
 
 #minha vida maxima
-const MAX_LIFE : int = 20
+@export var MAX_LIFE : int = 20
 
 #minha distancia maxima
 const MAX_DISTANCE : float = 250.0

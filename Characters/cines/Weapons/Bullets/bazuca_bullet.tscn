@@ -157,7 +157,6 @@ script = ExtResource("1_13pfk")
 texture = NodePath("Sprite2D")
 Anim = NodePath("AnimationPlayer")
 Particle = ExtResource("2_ofb1p")
-Scale_particle = Vector2(2, 2)
 Points_Acresim = 150
 metadata/_custom_type_script = "uid://cl4gm32xheimw"
 
@@ -186,6 +185,7 @@ texture = ExtResource("5_gjs7b")
 
 [node name="CollidedWalls" type="Node" parent="."]
 script = ExtResource("7_rwh8t")
+FORCE_SHAKE = 2.0
 metadata/_custom_type_script = "uid://cc8s3ipraawh5"
 
 [node name="ImpulseMovBullet" type="Node" parent="."]

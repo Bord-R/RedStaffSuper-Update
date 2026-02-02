@@ -12,7 +12,7 @@ class_name EstadoSplash #estado de splash
 @export var Anim : AnimationPlayer
 
 #constante para a quantidade maxima de possas que eu posso gerar
-const QUANTITY_POSS : int = 5
+@export var QUANTITY_POSS : int = 5
 
 #endregion
 

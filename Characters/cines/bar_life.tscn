@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://blphe5l6isw5x"]
+
+[ext_resource type="FontFile" uid="uid://bw0xo6e1h53n7" path="res://Characters/Fonts/2.png" id="1_uemms"]
+[ext_resource type="Script" uid="uid://c16pmmq85aeka" path="res://Characters/Scripts/Enemies_scripts/bar_life.gd" id="2_g7wph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uemms"]
+resource_local_to_scene = true
+bg_color = Color(0.34765625, 0.01628526, 0.22250584, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16796875, 0.030626265, 0.13186091, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7wph"]
+bg_color = Color(0, 0.7606778, 1, 1)
+border_width_left = 2
+border_width_top = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0.44705883, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="BarLife" type="ProgressBar"]
+z_index = 4
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 38.0
+offset_bottom = 2.0
+pivot_offset = Vector2(37.5, 2.5)
+theme_override_fonts/font = ExtResource("1_uemms")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/background = SubResource("StyleBoxFlat_uemms")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g7wph")
+value = 30.0
+allow_greater = true
+allow_lesser = true
+show_percentage = false
+script = ExtResource("2_g7wph")
