@@ -23,7 +23,7 @@ signal Damaged()
 @export var Area : Area2D
 
 #distancia maxima do jogador
-var FOLLOW_DISTANCE : float 
+@export var FOLLOW_DISTANCE : float 
 
 #minha animação atual
 var Anim_atual : String = ""
@@ -35,7 +35,7 @@ var Effect : bool = false
 var distance_player : float
 
 #vida do inimigo
-var Enemie_life : int :
+@export var Enemie_life : int :
 	#defido como uma variavel do tipo setter (definir)
 	set(value): #toda vez que eu mudo o valor dessa variavel
 		Enemie_life = value #ela é atualizada
@@ -44,7 +44,7 @@ var Enemie_life : int :
 var Enemie_direction : Vector2
 
 #velocidade
-var Enemie_vel : float
+@export var Enemie_vel : float
 
 #endregion
 

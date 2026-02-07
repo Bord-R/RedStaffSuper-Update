@@ -360,6 +360,9 @@ Anim = NodePath("Texture/AnimationPlayer")
 Image_texture = NodePath("Texture")
 Maquina_estados = NodePath("MaçaEstados")
 Area = NodePath("Hit")
+FOLLOW_DISTANCE = 250.0
+Enemie_life = 60
+Enemie_vel = 20.0
 metadata/_custom_type_script = "uid://0yc5gc8nbm7k"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -2,15 +2,6 @@ extends EnemiesFruits
 
 #region Variables
 
-#minha velocidade maxima
-@export var MAX_VEL : float = 60.0
-
-#minha vida maxima
-@export var MAX_LIFE : int = 20
-
-#minha distancia maxima
-const MAX_DISTANCE : float = 250.0
-
 #constante que representa o valor maximo do meu timer
 const MAX_TIMER_SPLASH : float = 15.0
 
@@ -26,16 +17,6 @@ func _ready() -> void:
 	
 	#conectando um sinal da minha hit box ao método Carregamento
 	VM.Conected_Signals(Area.area_entered, Maquina_estados.Carregando)
-
-
-	#minha distancia maxima
-	FOLLOW_DISTANCE = MAX_DISTANCE
-	
-	#definindo minha vida
-	Enemie_life = MAX_LIFE
-	
-	#minha velocidade é igual a minha velocidade maxima
-	Enemie_vel = MAX_VEL
 
 ################################################################################
 

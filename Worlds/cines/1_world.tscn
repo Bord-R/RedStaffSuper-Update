@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://yuw8ty4qni6i"]
+[gd_scene load_steps=8 format=4 uid="uid://yuw8ty4qni6i"]
 
 [ext_resource type="TileSet" uid="uid://1s707n68byqp" path="res://Worlds/tiles/1_world.tres" id="1_m4dxa"]
 [ext_resource type="Script" uid="uid://bmo70jsanelwe" path="res://Characters/Scripts/Camera.gd" id="2_7jtqy"]
 [ext_resource type="PackedScene" uid="uid://dmtl1waqweci7" path="res://Characters/cines/player_body.tscn" id="2_s8sl4"]
+[ext_resource type="PackedScene" uid="uid://b4rgxx3biwmm5" path="res://Characters/cines/maça.tscn" id="3_7jtqy"]
+[ext_resource type="PackedScene" uid="uid://caegqk04ioy56" path="res://Characters/cines/Weapons/double_pistol.tscn" id="4_afuis"]
 [ext_resource type="PackedScene" uid="uid://dvrw7o6fjbjv6" path="res://Characters/cines/HUD.tscn" id="11_m4yvn"]
 
 [sub_resource type="Environment" id="Environment_3803g"]
@@ -72,7 +74,13 @@ y_sort_enabled = true
 [node name="Enemies" type="Node2D" parent="Characters"]
 y_sort_enabled = true
 
+[node name="Maça" parent="Characters/Enemies" instance=ExtResource("3_7jtqy")]
+position = Vector2(6.0601807, -454.84137)
+
 [node name="Pistols" type="Node" parent="Characters"]
+
+[node name="Double_pistol" parent="Characters/Pistols" instance=ExtResource("4_afuis")]
+position = Vector2(49, -60)
 
 [node name="Player_body" parent="Characters" node_paths=PackedStringArray("Screen_shake") instance=ExtResource("2_s8sl4")]
 unique_name_in_owner = true
