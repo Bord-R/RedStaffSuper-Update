@@ -5,16 +5,19 @@ class_name CreateEffect #criando efeito
 
 #region Variables
 
-#meu efeito 
-@export var Effect : PackedScene
-
-#boleano que vera eu posso criar um efeito apenas por script
-@export var IsScriptEffect : bool = false
-
 #hitbox da bala
 @export var HitBox : Area2D
 
-@export_group("IsScriptEffect = true") #grupo de se isscripteffect igual a verdadeiro
+#efeito
+@export var Effect : PackedScene
+
+#meu efeito 
+@export var Area : PackedScene
+
+#meu espinho
+@export var Spike : PackedScene
+
+@export_group("Spikes Atributes") #grupo de atrbutos dos espinhos
 
 @export var Quantity_Spikes : int = 4
 
@@ -29,7 +32,7 @@ func _ready() -> void:
 	
 	#SE Meu node Pai for uma bala, e for uma super
 	if get_parent() is Bala and get_parent().IsReduction_Super:
-		AreaCreate() #crio uma area
+		CreateEffect() #crio uma area
 		return #retorna
 
 	#conectando sinal a um método 
@@ -42,13 +45,13 @@ func _ready() -> void:
 
 #region My Methods
 
-#método que rodara quando eu interagir com alguma arma
+#método que rodara quando eu interagir com algum inimigo
 func Inimigo_Detectado(_area : Area2D):
 	
 	#criando uma referencia ao inimigo
 	var _Enemy = _area.get_parent()
 	
-	#SE o inimigo for da classe Enemie fruits, eu...
+	#SE o inimigo for da classe Enemie fruits E ele não tiver um efeito
 	if _Enemy is EnemiesFruits and _Enemy.Effect == false:
 		
 		#instancio o efeito
@@ -58,30 +61,32 @@ func Inimigo_Detectado(_area : Area2D):
 		get_tree().root.call_deferred("add_child", _Create_effect)
 		
 		#definindo sua posição
-		_Create_effect.position = _Enemy.global_position + Vector2(0.0, -16.0)
+		_Create_effect.position = _Enemy.global_position
 		
 		#o inimigo ganha o efeito
 		_Enemy.Effect = true
 
 ################################################################################
 
-#método que criara uma area em volta do player
-func AreaCreate():
+#método que criara um efeito em volta do player
+func CreateEffect():
 	
-	#SE o efeito criado não for nulo
-	if Effect and !IsScriptEffect:
+	#SE a area criada não for nula E eu posso criar uma area
+	if Area and Game.Is_CreateArea:
 
-		#instancio o efeito
-		var _New_Effect = Effect.instantiate()
+		#instancio a nova area
+		var _New_Effect = Area.instantiate()
 
 		get_parent().MyPlayer.add_child(_New_Effect) #adiciono como filho do player
 
-		_New_Effect.global_position = get_parent().MyPlayer.global_position #a posição do efeito é igual a do player
+		_New_Effect.global_position = get_parent().MyPlayer.global_position #a posição da area é igual a do player
 
-	#SE NÃO, SE eu tenho um efeito, podendo fazer via class.new E poder criar uma nova area
-	elif Effect and IsScriptEffect and Game.Is_CreateSpike:
+		Game.Is_CreateArea = false
 
-		var _new_Effect_Script = CreateSpike.new(Quantity_Spikes, Effect, Mod_Radius_Spikes) #instancio um createspike com seu dados ja configurados
+	#SE eu tenho um espinho E eu posso criar um novo espinho
+	if Spike and Game.Is_CreateSpike:
+
+		var _new_Effect_Script = CreateSpike.new(Quantity_Spikes, Spike, Mod_Radius_Spikes) #instancio um createspike com seu dados ja configurados
 
 		get_parent().MyPlayer.add_child(_new_Effect_Script) #adiciono como filho do player
 

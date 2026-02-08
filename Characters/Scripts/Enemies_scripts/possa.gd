@@ -14,7 +14,7 @@ const PMINOS_TIMER : float = 0.05 #5%
 const LIFE_TIMER_MAX : float = 100.0
 
 #decreximo
-const DECRESIMO : float = 20.0
+const DECRESIMO : float = 0.2
 
 #variavel que ira mudar minha transparencia
 var alpha : float = 0.0
@@ -77,7 +77,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	if (_body.name == "Player_body"):
 		
 		#a variavel vel max do corpo é reduzida
-		_body.vel = DECRESIMO
+		_body.vel *= DECRESIMO
 
 ################################################################################
 

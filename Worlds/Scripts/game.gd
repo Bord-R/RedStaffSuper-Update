@@ -60,6 +60,9 @@ var Invincible_Active : bool = false
 #boleano que vera se eu posso criar espinhos
 var Is_CreateSpike : bool = true
 
+#boleano que vera se eu posso criar uma area
+var Is_CreateArea : bool = true
+
 #meu modo de jogo atual
 var Current_Mode : String = ""
 

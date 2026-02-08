@@ -202,9 +202,8 @@ metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
 
 [node name="CreateEffect" type="Node" parent="." node_paths=PackedStringArray("HitBox")]
 script = ExtResource("7_sw3sb")
-Effect = ExtResource("8_qe820")
-IsScriptEffect = true
 HitBox = NodePath("..")
+Spike = ExtResource("8_qe820")
 Quantity_Spikes = 12
 Mod_Radius_Spikes = 1.5
 metadata/_custom_type_script = "uid://dsr2bvynqhw71"

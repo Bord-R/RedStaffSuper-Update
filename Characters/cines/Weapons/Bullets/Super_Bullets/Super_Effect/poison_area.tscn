@@ -271,7 +271,6 @@ color_ramp = SubResource("GradientTexture1D_s8g1p")
 z_index = 2
 script = ExtResource("1_sgwo4")
 Init_Damage = 1
-Poits_Acresim = 75.0
 Super_Acresim = 1
 Anim = NodePath("Sprite2D/AnimationPlayer")
 Particles = NodePath("GPUParticles2D")
@@ -310,6 +309,6 @@ process_material = SubResource("ParticleProcessMaterial_3wgcp")
 
 [node name="CreateEffect" type="Node" parent="." node_paths=PackedStringArray("HitBox")]
 script = ExtResource("2_c70km")
-Effect = ExtResource("3_3wgcp")
 HitBox = NodePath("..")
+Effect = ExtResource("3_3wgcp")
 metadata/_custom_type_script = "uid://dsr2bvynqhw71"

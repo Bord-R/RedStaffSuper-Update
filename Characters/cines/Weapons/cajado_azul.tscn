@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bb27voy3dtvbf"]
+[gd_scene load_steps=21 format=3 uid="uid://bb27voy3dtvbf"]
 
 [ext_resource type="Script" uid="uid://b7crhf3qe5rfq" path="res://Characters/Scripts/Weapons_scripts/Weapon.gd" id="1_e6ftx"]
 [ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="2_7rrmo"]
 [ext_resource type="PackedScene" uid="uid://crtmfwgqacpgn" path="res://Characters/cines/Weapons/Bullets/projetil_azul.tscn" id="2_sck3f"]
+[ext_resource type="PackedScene" uid="uid://dnweokegmobs" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/super_staff_blue.tscn" id="3_x1j2t"]
 [ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="4_sck3f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13ewu"]
@@ -112,6 +113,7 @@ animations = [{
 [node name="Cajado Azul" type="CharacterBody2D" node_paths=PackedStringArray("Anim", "Collision", "Ray", "Area", "Marker")]
 script = ExtResource("1_e6ftx")
 Bullet = ExtResource("2_sck3f")
+Super_Bullet = ExtResource("3_x1j2t")
 Buff_Super = 1.35
 Variant_Curve = Dictionary[String, float]({
 "Max_Curve": 0.3,

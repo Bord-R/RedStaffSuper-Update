@@ -199,8 +199,8 @@ metadata/_custom_type_script = "uid://cc8s3ipraawh5"
 
 [node name="CreateEffect" type="Node" parent="." node_paths=PackedStringArray("HitBox")]
 script = ExtResource("8_fntmv")
-Effect = ExtResource("9_a8iml")
 HitBox = NodePath("..")
+Effect = ExtResource("9_a8iml")
 metadata/_custom_type_script = "uid://dsr2bvynqhw71"
 
 [node name="CollidedEnemies" type="Node" parent="."]

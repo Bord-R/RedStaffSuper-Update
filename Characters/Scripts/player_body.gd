@@ -9,9 +9,6 @@ signal gameover(_on_active : bool)
 
 #region consts
 
-#minha velocidade maxima original
-const NORMAL_MAX_VEL : float = 200.0
-
 #vida maxima
 const VIDA_MAX : int = 4
 
@@ -99,7 +96,7 @@ var vel : float = 0
 var direction : Vector2 = Vector2.ZERO
 
 #velocidade maxima
-var VEL_MAX : float = NORMAL_MAX_VEL
+var VEL_MAX : float = 200
 
 #minha animação atual
 var anim_atual : String

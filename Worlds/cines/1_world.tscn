@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=4 uid="uid://yuw8ty4qni6i"]
+[gd_scene load_steps=13 format=4 uid="uid://yuw8ty4qni6i"]
 
 [ext_resource type="TileSet" uid="uid://1s707n68byqp" path="res://Worlds/tiles/1_world.tres" id="1_m4dxa"]
 [ext_resource type="Script" uid="uid://bmo70jsanelwe" path="res://Characters/Scripts/Camera.gd" id="2_7jtqy"]
 [ext_resource type="PackedScene" uid="uid://dmtl1waqweci7" path="res://Characters/cines/player_body.tscn" id="2_s8sl4"]
 [ext_resource type="PackedScene" uid="uid://b4rgxx3biwmm5" path="res://Characters/cines/maça.tscn" id="3_7jtqy"]
 [ext_resource type="PackedScene" uid="uid://caegqk04ioy56" path="res://Characters/cines/Weapons/double_pistol.tscn" id="4_afuis"]
+[ext_resource type="PackedScene" uid="uid://c07rbei4fmklc" path="res://Characters/cines/Weapons/cajado_vermelho.tscn" id="5_3803g"]
+[ext_resource type="PackedScene" uid="uid://c7pb8a4cumr27" path="res://Characters/cines/Weapons/Basic_Pistol.tscn" id="6_m4yvn"]
+[ext_resource type="PackedScene" uid="uid://bb27voy3dtvbf" path="res://Characters/cines/Weapons/cajado_azul.tscn" id="7_mlg53"]
+[ext_resource type="PackedScene" uid="uid://dbrg3bafyvxoa" path="res://Characters/cines/Weapons/cajado_verde.tscn" id="8_dkjyc"]
+[ext_resource type="PackedScene" uid="uid://giu8lit01pvb" path="res://Characters/cines/Weapons/bazuca.tscn" id="9_m4yvn"]
 [ext_resource type="PackedScene" uid="uid://dvrw7o6fjbjv6" path="res://Characters/cines/HUD.tscn" id="11_m4yvn"]
 
 [sub_resource type="Environment" id="Environment_3803g"]
@@ -75,12 +80,31 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Maça" parent="Characters/Enemies" instance=ExtResource("3_7jtqy")]
-position = Vector2(6.0601807, -454.84137)
+position = Vector2(-518, -536)
 
 [node name="Pistols" type="Node" parent="Characters"]
 
 [node name="Double_pistol" parent="Characters/Pistols" instance=ExtResource("4_afuis")]
-position = Vector2(49, -60)
+position = Vector2(556, -521)
+
+[node name="Cajado vermelho" parent="Characters/Pistols" instance=ExtResource("5_3803g")]
+position = Vector2(-684.0164, -442.29993)
+
+[node name="Basic Pistol" parent="Characters/Pistols" instance=ExtResource("6_m4yvn")]
+position = Vector2(-167, -11)
+rotation = -6.059783
+
+[node name="Cajado Azul" parent="Characters/Pistols" instance=ExtResource("7_mlg53")]
+position = Vector2(1111, -585)
+rotation = -4.455826
+
+[node name="CajadoVerde" parent="Characters/Pistols" instance=ExtResource("8_dkjyc")]
+position = Vector2(-741.00006, -330)
+rotation = 0.26703537
+
+[node name="Bazuca" parent="Characters/Pistols" instance=ExtResource("9_m4yvn")]
+position = Vector2(818, 152.99994)
+rotation = -0.44505897
 
 [node name="Player_body" parent="Characters" node_paths=PackedStringArray("Screen_shake") instance=ExtResource("2_s8sl4")]
 unique_name_in_owner = true

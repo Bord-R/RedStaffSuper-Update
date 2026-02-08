@@ -17,7 +17,7 @@ extends Area2D
 const TIME_LIFE : float = 30.0
 
 #enpurrão que do no inimigo
-const KNOCK_ENEMY : float = 2.5
+const KNOCK_ENEMY : float = 0.5
 
 var My_Timer : Timer = Timer.new() #meu timer
 
@@ -35,7 +35,7 @@ func _ready(): #método que começara quando eu estiver pronto
 
 	My_Timer.wait_time = TIME_LIFE #espere pelo tempo do meu tempo de vida
 
-	My_Timer. start() #inicio o timer
+	My_Timer.start() #inicio o timer
 
 	#conectando os sinais ao seus métodos
 	VM.Conected_Signals(My_Timer.timeout, Final_Stage)
@@ -44,9 +44,9 @@ func _ready(): #método que começara quando eu estiver pronto
 
 ################################################################################
 
-func _process(_delta):
+func _process(_delta): #método que rodara a cada frame
 	
-	if Game.Player_Dead: Swap_Anim("end")
+	if Game.Player_Dead: Swap_Anim("end") #SE o player morrer eu toco "end"
 
 ################################################################################
 
@@ -108,6 +108,8 @@ func Final_Stage():
 
 	get_tree().current_scene.remove_child(My_Timer) #removo o timer da scene tree pra não acumular coisa desnecessaria na memória
 	
+	Game.is_CreateArea = true #posso criar uma area novamente
+
 	Swap_Anim("end") #toco "end" (fim)
 
 ################################################################################

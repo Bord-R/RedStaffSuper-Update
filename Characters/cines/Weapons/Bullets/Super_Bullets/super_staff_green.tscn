@@ -206,8 +206,8 @@ metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
 
 [node name="CreateEffect" type="Node" parent="." node_paths=PackedStringArray("HitBox")]
 script = ExtResource("6_sqeih")
-Effect = ExtResource("8_73dwa")
 HitBox = NodePath("..")
+Area = ExtResource("8_73dwa")
 metadata/_custom_type_script = "uid://dsr2bvynqhw71"
 
 [node name="ImpulseMovBullet" type="Node" parent="."]

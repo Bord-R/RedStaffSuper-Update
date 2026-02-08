@@ -403,16 +403,13 @@ func Enter_text(_text : String):
 		#SE vel active for verdadeiro
 		if Game.Vel_Active:
 
-			#o vel max é mudado pra ser igual a DEbug vel
-			Player.VEL_MAX = Player.DEBUG_VEL
+			#o vel é mudado pra ser igual a DEbug vel
+			Player.vel = Player.DEBUG_VEL
 
 		else: #SE NÃO
 
-			#o vel max volta a ter seu valor original
-			Player.VEL_MAX = Player.NORMAL_MAX_VEL
-
-		#faço a velcidade do player ser igual sua velocidade maxima
-		Player.vel = Player.VEL_MAX
+			#o vel volta a ter seu valor original
+			Player.vel = Player.MAX_VEL
 
 		Mod_Text(Game.Vel_Active, "I_SHOW_SPEED_MODE")
 
