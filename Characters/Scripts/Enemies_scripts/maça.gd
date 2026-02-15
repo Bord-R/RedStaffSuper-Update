@@ -25,16 +25,7 @@ func _physics_process(_delta: float) -> void:
 	
 	#método que fara meu ciclo de vida
 	Cicle_Dead_and_Splash()
-	
-	#SE o player morreu, eu tambem morro (pensamento perigoso em)
-	if Game.Player_Dead: queue_free()
-
-	#SE eu estou sendo carregado
-	elif visible == true:
-		
-		#método para mudar minha animação
-		Troca_animacao(Maquina_estados.Anim_nome)
-
+			
 ################################################################################
 
 #endregion

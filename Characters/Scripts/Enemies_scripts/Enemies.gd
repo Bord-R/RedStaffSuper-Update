@@ -8,7 +8,7 @@ class_name EnemiesFruits
 signal Damaged()
 
 #player
-@onready var player = owner.get_node("%Player_body")
+@onready var player : FruitsCharacter = owner.get_node("%Player_body")
 
 #meu animationPlayer
 @export var Anim : AnimationPlayer
@@ -54,6 +54,24 @@ var Enemie_direction : Vector2
 func _init() -> void:
 	
 	visible = false #fico invisivel
+
+################################################################################
+
+#método que rodara durante o game
+func _process(_delta):
+		
+	#SE o player morreu, eu tambem morro (pensamento perigoso em)
+	if Game.Player_Dead: queue_free()
+
+	#SE eu estou sendo carregado
+	elif visible == true:
+		
+		#método para mudar minha animação
+		Troca_animacao(Maquina_estados.Anim_nome)
+
+		#SE o minha posição x E y forem inicalculaveis
+		if is_nan(position.x) and is_nan(position.y):
+			position = player.position #faço a posição dele ser igual a do player
 
 ################################################################################
 
