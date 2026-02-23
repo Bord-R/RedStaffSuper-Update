@@ -8,16 +8,33 @@ extends Bala
 	set(_value): #pege o valor atribuido
 		Shake_Force = _value #e adicione ele a shake force
 
+#boleano que vereficara se eu posso tremer a tela
+var isShake : bool = false
 
 #endregion
 
 #region Methods
 
-#método que rodara quando eu estiver carregado
-func _process(_delta : float) -> void:
+#método que rodara a cada frame
+func _process(_delta: float) -> void:
 
-	#fazendo a tela tremer
-	Screen_shake.trigger_shake(Shake_Force)
+	if isShake: #SE eu posso tremer a tela
+		Screen_shake.trigger_shake(Shake_Force) # eu tremo ela
+
+################################################################################
+
+#endregion
+
+#region My Methods
+
+func AlternHUD(): #método que alternara se eu posso estar removendo a HUD ou não
+	
+	Game.IsHUDRemove = !Game.IsHUDRemove #alterno o valor da permição 
+
+################################################################################
+
+func AlternShake(): #método que alternara o valor de is shake
+	isShake = !isShake #Alterno o valor de is shake
 
 ################################################################################
 

@@ -285,29 +285,40 @@ func Transparent_In_Combat(_node : Sprite2D):
 	#crio um tween local que mudara minha transparencia
 	var _tween_alpha : Tween = null
 
-	#SE eu Não apertar o botão esquerdo e direito do mouse ou o player não ter arma
-	if  !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !Input.is_key_label_pressed(KEY_SPACE) or !Player.Possui_arma:
-		
+	if !Game.IsHUDRemove: #SE eu NÃO tenho que remover a HUD da tela
+
+		#SE eu Não apertar o botão esquerdo e direito do mouse ou o player não ter arma
+		if  !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !Input.is_key_label_pressed(KEY_SPACE) or !Player.Possui_arma:
+			
+			if _tween_alpha: _tween_alpha.kill() #SE esse tween existe, eu deleto ele
+
+			_tween_alpha = create_tween().bind_node(_node) #crio tween e conecto ele a mim
+
+			_tween_alpha.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR) #defino o tipo de transição
+
+			#a transparencia de _node fica normal
+			_tween_alpha.parallel().tween_property(_node, "modulate", NORMAL_TRANSPARENT, SEGS["COMUM"])
+
+			return #retorna caso seja verdadeiro
+
 		if _tween_alpha: _tween_alpha.kill() #SE esse tween existe, eu deleto ele
 
 		_tween_alpha = create_tween().bind_node(_node) #crio tween e conecto ele a mim
 
 		_tween_alpha.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR) #defino o tipo de transição
 
-		#a transparencia de _node fica normal
-		_tween_alpha.parallel().tween_property(_node, "modulate", NORMAL_TRANSPARENT, SEGS["COMUM"])
+		#a transparencia é modificada
+		_tween_alpha.parallel().tween_property(_node, "modulate", MOD_TRANSPARENT, SEGS["COMUM"])
 
-		return #retorna caso seja verdadeiro
+	else: #SE NÃO
 
-	if _tween_alpha: _tween_alpha.kill() #SE esse tween existe, eu deleto ele
+		_tween_alpha = create_tween().bind_node(_node) #crio tween e conecto ele a mim
 
-	_tween_alpha = create_tween().bind_node(_node) #crio tween e conecto ele a mim
+		_tween_alpha.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR) #defino o tipo de transição
 
-	_tween_alpha.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR) #defino o tipo de transição
+		#a transparencia é modificada
+		_tween_alpha.parallel().tween_property(_node, "modulate", Color.TRANSPARENT, SEGS["COMUM"])
 
-	#a transparencia é modificada
-	_tween_alpha.parallel().tween_property(_node, "modulate", MOD_TRANSPARENT, SEGS["COMUM"])
-	
 ################################################################################
 
 #método que adiministrara o debug mode
@@ -328,6 +339,9 @@ func DEBUG_Mode():
 
 		#posso editar o line code
 		Line_Code.edit()
+
+		if Game.IsHUDRemove: #SE tenho que remover a hud da tela
+			Game.DEBUG_Active = false #dasativo o modo de debug
 
 		#retorna
 		return

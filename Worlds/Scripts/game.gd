@@ -66,6 +66,9 @@ var Is_CreateArea : bool = true
 #meu modo de jogo atual
 var Current_Mode : String = ""
 
+#variavel que avisara se eu posso tirar a hud 
+var IsHUDRemove : bool = false
+
 #endregion
 
 #region Methods

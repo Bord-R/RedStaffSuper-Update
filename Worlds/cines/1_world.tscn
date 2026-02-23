@@ -169,6 +169,9 @@ rotation = 0.26703537
 position = Vector2(818, 152.99994)
 rotation = -0.44505897
 
+[node name="Bazuca2" parent="Characters/Pistols" instance=ExtResource("9_m4yvn")]
+position = Vector2(-167, -59)
+
 [node name="Player_body" parent="Characters" node_paths=PackedStringArray("Screen_shake") instance=ExtResource("2_s8sl4")]
 unique_name_in_owner = true
 Screen_shake = NodePath("../../MyCamera")

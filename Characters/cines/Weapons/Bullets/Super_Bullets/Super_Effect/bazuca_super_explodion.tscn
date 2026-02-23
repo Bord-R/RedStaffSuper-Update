@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5jwqa1c7hqba"]
+[gd_scene load_steps=10 format=3 uid="uid://b5jwqa1c7hqba"]
 
 [ext_resource type="Script" uid="uid://ni5w6xpqi4lw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bazuca_explodion.gd" id="1_12irw"]
 [ext_resource type="Texture2D" uid="uid://cj6s7uyrtt4h7" path="res://Characters/Sprites/pistols/bullets/bullet_effects/Sprite-particle_bazuca.png" id="2_6saah"]
 [ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="3_fe4o7"]
 [ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="4_w2s81"]
+[ext_resource type="Script" uid="uid://bm7gps7pilfnn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/Super_freeze.gd" id="5_6saah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12irw"]
 
 [sub_resource type="Animation" id="Animation_6g0op"]
 length = 0.001
@@ -46,19 +49,43 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/path = NodePath("Sprite2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(3, 3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.13725491, 0.003921569, 0.13725491, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_0ttdi"]
 resource_name = "start"
-length = 0.26
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,7 +93,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.019950785, 0.03988806, 0.059918698, 0.07996878, 0.10008219, 0.120200805, 0.14041774, 0.15998949, 0.18005708, 0.20021257, 0.21998149, 0.24025282),
+"times": PackedFloat32Array(0, 0.26666668, 0.46666667, 0.6666667, 0.8999117, 0.9200251, 0.9401437, 0.96036065, 0.9799324, 1, 1.0333333, 1.0666667, 1.1),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -78,7 +105,7 @@ tracks/1/path = NodePath("PointLight2D:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1799878, 0.23762536),
+"times": PackedFloat32Array(0, 0.8666667, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 1), Color(1, 0.81376886, 0.06507516, 1), Color(1, 1, 1, 1)]
@@ -90,22 +117,69 @@ tracks/2/path = NodePath("PointLight2D:energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.048267532, 0.10441734, 0.14476147, 0.17349897, 0.20172535),
+"times": PackedFloat32Array(0, 0.4666667, 0.8666667, 1.0333333, 1.1333333, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.5, 0.0, 1.0, 1.5, 1.8, 1.8]
+"values": [0.5, 0.0, 1.0, 1.8, 1.8, 0.5]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/path = NodePath("Sprite2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.0020458698, 0.1150118),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.8333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 3.141592653589793]
+"values": [Vector2(3, 3), Vector2(3, 3), Vector2(5, 5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8333333, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.13725491, 0.003921569, 0.13725491, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.76666665, 1.1666666, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"AlternHUD"
+}, {
+"args": [],
+"method": &"AlternShake"
+}, {
+"args": [],
+"method": &"AlternShake"
+}, {
+"args": [],
+"method": &"AlternHUD"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ydorf"]
@@ -114,24 +188,27 @@ _data = {
 &"start": SubResource("Animation_0ttdi")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_12irw"]
-
 [node name="BazucaSuperExplodion" type="Area2D" node_paths=PackedStringArray("texture", "Anim")]
+z_index = 8
 script = ExtResource("1_12irw")
 Shake_Force = 60.0
 texture = NodePath("Sprite2D")
 Anim = NodePath("AnimationPlayer")
 Points_Acresim = 250
-Damage = 50
+Damage = 80
 Knockback = 10.0
 metadata/_custom_type_script = "uid://cl4gm32xheimw"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 4
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 texture = ExtResource("2_6saah")
 hframes = 7
 vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_12irw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -139,19 +216,30 @@ libraries = {
 }
 autoplay = "start"
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-texture = ExtResource("3_fe4o7")
-texture_scale = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(20, 20)
-shape = SubResource("CircleShape2D_12irw")
-
 [node name="CollidedEnemies" type="Node" parent="."]
 script = ExtResource("4_w2s81")
 Restriction_State = false
 Destroy_Bool = false
 Shake = 0.0
 metadata/_custom_type_script = "uid://dp8ck4ccl3dvc"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 3
+offset_left = -636.0
+offset_top = -431.0
+offset_right = 639.0
+offset_bottom = 469.0
+color = Color(0.13725491, 0.003921569, 0.13725491, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 8
+texture = ExtResource("3_fe4o7")
+texture_scale = 10.0
+
+[node name="FreezeSuper" type="Node" parent="."]
+script = ExtResource("5_6saah")
+Escala_time = 0.2
+Duracao = 1.0
+metadata/_custom_type_script = "uid://bm7gps7pilfnn"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
