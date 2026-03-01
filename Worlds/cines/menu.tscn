@@ -1,13 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://cj0a62p7vekax"]
+[gd_scene load_steps=24 format=3 uid="uid://cj0a62p7vekax"]
 
 [ext_resource type="Shader" uid="uid://cur5kdo3q4cjg" path="res://Menu/Shaders/BackGroud-Menu.gdshader" id="1_7jyf7"]
 [ext_resource type="Texture2D" uid="uid://m6cb8icuj2b3" path="res://Menu/Sprites/BackGroud-Menu.png" id="1_jdcpi"]
 [ext_resource type="Script" uid="uid://v408pyb2yc1o" path="res://Worlds/Scripts/Menu-Principal.gd" id="1_u40gu"]
-[ext_resource type="Texture2D" uid="uid://bdlu1giey8psl" path="res://Menu/Sprites/Vines-Menu.png" id="2_u1l74"]
-[ext_resource type="Texture2D" uid="uid://uif40o5nr2jh" path="res://Menu/Sprites/VinesB-Menu.png" id="4_7t3q7"]
+[ext_resource type="Script" uid="uid://1qpvfdonr00t" path="res://Worlds/Scripts/Vines.gd" id="5_8184t"]
+[ext_resource type="Texture2D" uid="uid://k35blhk7o0nh" path="res://Menu/Sprites/Sprite-Vines.png" id="5_vbfbg"]
 [ext_resource type="Texture2D" uid="uid://cntyqjwrntjtu" path="res://Menu/Sprites/Sprite-Bar_menu.png" id="6_8184t"]
-[ext_resource type="Texture2D" uid="uid://cfj422noo03fo" path="res://Menu/Sprites/Title-Menu.png" id="6_iklu8"]
+[ext_resource type="Texture2D" uid="uid://cm1wupqhnui15" path="res://Menu/Sprites/Sprite-TitleMenu.png" id="7_8184t"]
 [ext_resource type="Texture2D" uid="uid://b8te6461l54ib" path="res://Menu/Sprites/Buttons/Start-Button.png" id="8_6d2ny"]
+[ext_resource type="Script" uid="uid://6u4pqi81nbwg" path="res://Worlds/Scripts/title.gd" id="8_vbfbg"]
 [ext_resource type="Script" uid="uid://yppm0ae6v2r5" path="res://Menu/My_Button.gd" id="9_6d2ny"]
 [ext_resource type="Texture2D" uid="uid://b8sfk13jgtuqp" path="res://Menu/Sprites/Buttons/Opitions-Button.png" id="10_4jwur"]
 [ext_resource type="Texture2D" uid="uid://dggc0modlux87" path="res://Menu/Sprites/Buttons/Quit-Button.png" id="11_8184t"]
@@ -19,44 +20,7 @@ shader_parameter/Reducao = 0.2
 shader_parameter/escuridao = Color(0.039215688, 0.07058824, 0.13725491, 1)
 shader_parameter/Varicao = 0.499999988824
 
-[sub_resource type="Animation" id="Animation_w2g7v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_7t3q7"]
-resource_name = "Rotate title"
-length = 2.0
-loop_mode = 1
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.089999914, 0.91, 1.01),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-0.2513274122871831, -0.3490658503988659, 0.2513274122871831, 0.3490658503988659]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6d2ny"]
-_data = {
-&"RESET": SubResource("Animation_w2g7v"),
-&"Rotate title": SubResource("Animation_7t3q7")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc0xq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jwur"]
 atlas = ExtResource("8_6d2ny")
@@ -110,17 +74,35 @@ texture = ExtResource("1_jdcpi")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="VinesBackGroud" type="Sprite2D" parent="."]
-modulate = Color(0.734375, 0.734375, 0.734375, 1)
-position = Vector2(320, 180)
-rotation = 0.02689891
-scale = Vector2(1.0989236, 1.0989236)
-texture = ExtResource("4_7t3q7")
+[node name="MasterVines" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_yc0xq")
+position = Vector2(443, 280)
+script = ExtResource("5_8184t")
+rot_summed = 0.5
 
-[node name="VinesPlacehonder" type="Sprite2D" parent="."]
-modulate = Color(0.80078125, 0.80078125, 0.80078125, 1)
-position = Vector2(320, 180)
-texture = ExtResource("2_u1l74")
+[node name="SpriteVines4" type="Sprite2D" parent="MasterVines"]
+position = Vector2(-220, -173)
+texture = ExtResource("5_vbfbg")
+
+[node name="SpriteVines2" type="Sprite2D" parent="MasterVines"]
+position = Vector2(172, -260)
+texture = ExtResource("5_vbfbg")
+
+[node name="SpriteVines" type="Sprite2D" parent="MasterVines"]
+position = Vector2(-14, 45)
+texture = ExtResource("5_vbfbg")
+
+[node name="SpriteVines3" type="Sprite2D" parent="MasterVines"]
+position = Vector2(197, 0)
+texture = ExtResource("5_vbfbg")
+
+[node name="SpriteVines5" type="Sprite2D" parent="MasterVines"]
+position = Vector2(-230, 9)
+texture = ExtResource("5_vbfbg")
+
+[node name="SpriteVines6" type="Sprite2D" parent="MasterVines"]
+position = Vector2(-21, -200)
+texture = ExtResource("5_vbfbg")
 
 [node name="BarPlacehonder" type="Sprite2D" parent="."]
 position = Vector2(167, 178)
@@ -128,13 +110,9 @@ texture = ExtResource("6_8184t")
 
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(453, 139)
-texture = ExtResource("6_iklu8")
-
-[node name="TitleAnimation" type="AnimationPlayer" parent="Title"]
-libraries = {
-&"": SubResource("AnimationLibrary_6d2ny")
-}
-autoplay = "Rotate title"
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_8184t")
+script = ExtResource("8_vbfbg")
 
 [node name="Start" type="TextureButton" parent="."]
 offset_left = 22.0

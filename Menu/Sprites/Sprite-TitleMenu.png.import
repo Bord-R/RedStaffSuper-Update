@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdlu1giey8psl"
-path="res://.godot/imported/Vines-Menu.png-5268a05f5899a164c5829f07016f51ff.ctex"
+uid="uid://cm1wupqhnui15"
+path="res://.godot/imported/Sprite-TitleMenu.png-a16124b5e53d4629f96fea887435a3ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/Sprites/Vines-Menu.png"
-dest_files=["res://.godot/imported/Vines-Menu.png-5268a05f5899a164c5829f07016f51ff.ctex"]
+source_file="res://Menu/Sprites/Sprite-TitleMenu.png"
+dest_files=["res://.godot/imported/Sprite-TitleMenu.png-a16124b5e53d4629f96fea887435a3ec.ctex"]
 
 [params]
 
