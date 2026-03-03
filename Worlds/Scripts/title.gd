@@ -2,6 +2,12 @@ extends Sprite2D
 
 #region Variables
 
+#valor maximo de rotação
+const MAX_ROTATE : float = 0.25
+
+#tempos do meu tween
+var Times : Dictionary = {"Curto" : 0.25, "Médio" : 0.5}
+
 #tween
 var TweenSen : Tween = null
 
@@ -18,10 +24,10 @@ func _ready():
     TweenSen = create_tween().bind_node(self).set_loops(-1)
 
     #interpolando minha posição y e rotação
-    TweenSen.tween_property(self, "rotation", 0.25, 0.25) 
-    TweenSen.tween_method(SinPosY, 0, TAU, 0.5) 
-    TweenSen.tween_property(self, "rotation", -0.25, 0.25)  
-    TweenSen.tween_method(SinPosY, 0, TAU, 0.5) 
+    TweenSen.tween_property(self, "rotation", MAX_ROTATE, Times["Curto"]) 
+    TweenSen.tween_method(SinPosY, 0, TAU, Times["Médio"]) 
+    TweenSen.tween_property(self, "rotation", -MAX_ROTATE, Times["Curto"])  
+    TweenSen.tween_method(SinPosY, 0, TAU, Times["Médio"]) 
     
 ################################################################################
 

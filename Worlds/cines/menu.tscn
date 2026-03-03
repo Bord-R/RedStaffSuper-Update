@@ -80,20 +80,20 @@ position = Vector2(443, 280)
 script = ExtResource("5_8184t")
 rot_summed = 0.5
 
-[node name="SpriteVines4" type="Sprite2D" parent="MasterVines"]
-position = Vector2(-220, -173)
+[node name="SpriteVines" type="Sprite2D" parent="MasterVines"]
+position = Vector2(-14, 45)
 texture = ExtResource("5_vbfbg")
 
 [node name="SpriteVines2" type="Sprite2D" parent="MasterVines"]
 position = Vector2(172, -260)
 texture = ExtResource("5_vbfbg")
 
-[node name="SpriteVines" type="Sprite2D" parent="MasterVines"]
-position = Vector2(-14, 45)
-texture = ExtResource("5_vbfbg")
-
 [node name="SpriteVines3" type="Sprite2D" parent="MasterVines"]
 position = Vector2(197, 0)
+texture = ExtResource("5_vbfbg")
+
+[node name="SpriteVines4" type="Sprite2D" parent="MasterVines"]
+position = Vector2(-220, -173)
 texture = ExtResource("5_vbfbg")
 
 [node name="SpriteVines5" type="Sprite2D" parent="MasterVines"]
