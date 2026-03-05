@@ -108,6 +108,10 @@ avoidance/layer_1="Player"
 avoidance/layer_2="Itens"
 avoidance/layer_3="Enemies"
 
+[physics]
+
+2d/run_on_separate_thread=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
