@@ -1,0 +1,201 @@
+[gd_scene load_steps=27 format=3 uid="uid://doiy16hyukd7u"]
+
+[ext_resource type="Texture2D" uid="uid://bxekl4n47o0gn" path="res://Menu/Sprites/Pause_Assets/Sprite-ShadowVines.png" id="1_1gl2x"]
+[ext_resource type="Script" uid="uid://cfev2knafoyuq" path="res://Menu/pause_screen.gd" id="1_bi2ra"]
+[ext_resource type="Script" uid="uid://yppm0ae6v2r5" path="res://Menu/My_Button.gd" id="1_jvyjj"]
+[ext_resource type="Texture2D" uid="uid://b1jmm2k4yromv" path="res://Menu/Sprites/Pause_Assets/Sprite-VinesPause.png" id="2_6qq2k"]
+[ext_resource type="Texture2D" uid="uid://h5lglmdh7wt3" path="res://Menu/Sprites/Pause_Assets/Sprite-PauseBar.png" id="3_bi2ra"]
+[ext_resource type="Texture2D" uid="uid://buxxspwyis8ca" path="res://Menu/Sprites/Pause_Assets/Sprite-PauseTitle.png" id="4_xq48v"]
+[ext_resource type="Texture2D" uid="uid://cdfed8dokub24" path="res://Menu/Sprites/Buttons/Button_Pause/Sprite-ButtonResume.png" id="5_6qq2k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq48v"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(0, 0, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6itd"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(288, 0, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qel8w"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(576, 0, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msrwd"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(864, 0, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le73w"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(1152, 0, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lohlx"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(1440, 0, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tslnt"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(0, 404, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib25e"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(288, 404, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_log4q"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(576, 404, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh54l"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(864, 404, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfy0w"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(1152, 404, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wun8x"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(1440, 404, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj6lv"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(0, 202, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q4us"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(288, 202, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se6eq"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(576, 202, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loqta"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(864, 202, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q5ad"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(1152, 202, 288, 202)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06sap"]
+atlas = ExtResource("5_6qq2k")
+region = Rect2(1440, 202, 288, 202)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7e7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq48v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6itd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qel8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msrwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le73w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lohlx")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tslnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib25e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_log4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh54l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfy0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wun8x")
+}],
+"loop": true,
+"name": &"press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj6lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q4us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se6eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loqta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q5ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06sap")
+}],
+"loop": true,
+"name": &"select",
+"speed": 5.0
+}]
+
+[node name="PauseScreen" type="CanvasLayer" node_paths=PackedStringArray("ShadowVines", "Vines", "BarPause", "TextPause", "ButtonResume")]
+process_mode = 3
+layer = 2
+script = ExtResource("1_bi2ra")
+ShadowVines = NodePath("ShadowVines")
+Vines = NodePath("Vines")
+BarPause = NodePath("Bar")
+TextPause = NodePath("Title")
+ButtonResume = NodePath("MyButton")
+
+[node name="ShadowVines" type="Sprite2D" parent="."]
+position = Vector2(329, -163)
+texture = ExtResource("1_1gl2x")
+
+[node name="Vines" type="Sprite2D" parent="."]
+position = Vector2(321, -179)
+texture = ExtResource("2_6qq2k")
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(900, 167)
+texture = ExtResource("3_bi2ra")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(-226, 96)
+texture = ExtResource("4_xq48v")
+
+[node name="MyButton" type="TextureButton" parent="."]
+offset_left = 346.0
+offset_top = 400.0
+offset_right = 561.0
+offset_bottom = 522.0
+pivot_offset = Vector2(107.5, 61)
+ignore_texture_size = true
+stretch_mode = 3
+script = ExtResource("1_jvyjj")
+metadata/_custom_type_script = "uid://yppm0ae6v2r5"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MyButton"]
+position = Vector2(103, 65)
+sprite_frames = SubResource("SpriteFrames_e7e7o")
+animation = &"normal"
+autoplay = "normal"
+frame_progress = 0.5485842
+
+[connection signal="button_down" from="MyButton" to="MyButton/AnimatedSprite2D" method="play" binds= ["select"]]
+[connection signal="button_up" from="MyButton" to="MyButton/AnimatedSprite2D" method="play" binds= ["press"]]
+[connection signal="mouse_exited" from="MyButton" to="MyButton/AnimatedSprite2D" method="play" binds= ["normal"]]

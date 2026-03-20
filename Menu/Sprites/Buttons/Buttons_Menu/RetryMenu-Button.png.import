@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yo1v3t3fdad2"
-path="res://.godot/imported/Sprite-transicionScenes.png-23947cf38b14e20b32142508c93b36e6.ctex"
+uid="uid://cnmxvpxuumuoj"
+path="res://.godot/imported/RetryMenu-Button.png-240efae99ca0b4e9f81f8f7b3f0acc2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/Sprites/Sprite-transicionScenes.png"
-dest_files=["res://.godot/imported/Sprite-transicionScenes.png-23947cf38b14e20b32142508c93b36e6.ctex"]
+source_file="res://Menu/Sprites/Buttons/Buttons_Menu/RetryMenu-Button.png"
+dest_files=["res://.godot/imported/RetryMenu-Button.png-240efae99ca0b4e9f81f8f7b3f0acc2c.ctex"]
 
 [params]
 

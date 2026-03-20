@@ -7,6 +7,9 @@ extends Node
 #exportando o menu
 @export var Menu : CanvasLayer
 
+#exportando a tela de pause
+@export var Pause_Screen : CanvasLayer
+
 #exportando o primeiro mundo
 @export var P_World : Node2D
 
@@ -127,7 +130,9 @@ func on_start_button_up() -> void:
 
 	#deixando o primeiro mundo visivel
 	P_World.visible = true
-	
+
+	Pause_Screen.Can_Pause = true #o jogo pode ser pausado
+
 	#mudando a visibilidade do node HUD de P_World
 	P_World.get_node("HUD").visible = true
 

@@ -1,16 +1,16 @@
 [gd_scene load_steps=23 format=3 uid="uid://cj0a62p7vekax"]
 
 [ext_resource type="Shader" uid="uid://cur5kdo3q4cjg" path="res://Menu/Shaders/BackGroud-Menu.gdshader" id="1_7jyf7"]
-[ext_resource type="Texture2D" uid="uid://m6cb8icuj2b3" path="res://Menu/Sprites/BackGroud-Menu.png" id="1_jdcpi"]
+[ext_resource type="Texture2D" uid="uid://m6cb8icuj2b3" path="res://Menu/Sprites/Menu_Assets/BackGroud-Menu.png" id="1_jdcpi"]
 [ext_resource type="Script" uid="uid://1qpvfdonr00t" path="res://Worlds/Scripts/Vines.gd" id="5_8184t"]
-[ext_resource type="Texture2D" uid="uid://k35blhk7o0nh" path="res://Menu/Sprites/Sprite-Vines.png" id="5_vbfbg"]
-[ext_resource type="Texture2D" uid="uid://cntyqjwrntjtu" path="res://Menu/Sprites/Sprite-Bar_menu.png" id="6_8184t"]
-[ext_resource type="Texture2D" uid="uid://cm1wupqhnui15" path="res://Menu/Sprites/Sprite-TitleMenu.png" id="7_8184t"]
-[ext_resource type="Texture2D" uid="uid://b8te6461l54ib" path="res://Menu/Sprites/Buttons/Start-Button.png" id="8_6d2ny"]
+[ext_resource type="Texture2D" uid="uid://k35blhk7o0nh" path="res://Menu/Sprites/Menu_Assets/Sprite-Vines.png" id="5_vbfbg"]
+[ext_resource type="Texture2D" uid="uid://cntyqjwrntjtu" path="res://Menu/Sprites/Menu_Assets/Sprite-Bar_menu.png" id="6_8184t"]
+[ext_resource type="Texture2D" uid="uid://cm1wupqhnui15" path="res://Menu/Sprites/Menu_Assets/Sprite-TitleMenu.png" id="7_8184t"]
+[ext_resource type="Texture2D" uid="uid://b8te6461l54ib" path="res://Menu/Sprites/Buttons/Buttons_Menu/Start-Button.png" id="8_6d2ny"]
 [ext_resource type="Script" uid="uid://6u4pqi81nbwg" path="res://Worlds/Scripts/title.gd" id="8_vbfbg"]
 [ext_resource type="Script" uid="uid://yppm0ae6v2r5" path="res://Menu/My_Button.gd" id="9_6d2ny"]
-[ext_resource type="Texture2D" uid="uid://b8sfk13jgtuqp" path="res://Menu/Sprites/Buttons/Opitions-Button.png" id="10_4jwur"]
-[ext_resource type="Texture2D" uid="uid://dggc0modlux87" path="res://Menu/Sprites/Buttons/Quit-Button.png" id="11_8184t"]
+[ext_resource type="Texture2D" uid="uid://b8sfk13jgtuqp" path="res://Menu/Sprites/Buttons/Buttons_Menu/Opitions-Button.png" id="10_4jwur"]
+[ext_resource type="Texture2D" uid="uid://dggc0modlux87" path="res://Menu/Sprites/Buttons/Buttons_Menu/Quit-Button.png" id="11_8184t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u40gu"]
 resource_local_to_scene = true

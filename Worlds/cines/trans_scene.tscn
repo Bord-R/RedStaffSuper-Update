@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4j3q8sar3v0e"]
 
-[ext_resource type="Texture2D" uid="uid://yo1v3t3fdad2" path="res://Menu/Sprites/Sprite-transicionScenes.png" id="1_mrldr"]
+[ext_resource type="Texture2D" uid="uid://yo1v3t3fdad2" path="res://Menu/Sprites/Menu_Assets/Sprite-transicionScenes.png" id="1_mrldr"]
 
 [sub_resource type="Animation" id="Animation_pd15c"]
 length = 0.001

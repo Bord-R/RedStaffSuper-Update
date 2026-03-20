@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnmxvpxuumuoj"
-path="res://.godot/imported/RetryMenu-Button.png-41ac1b1ccb8f03ff5f13c4dda3f5ef1e.ctex"
+uid="uid://bxekl4n47o0gn"
+path="res://.godot/imported/Sprite-ShadowVines.png-6213230e077a182d6734407f7bdfcce1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/Sprites/Buttons/RetryMenu-Button.png"
-dest_files=["res://.godot/imported/RetryMenu-Button.png-41ac1b1ccb8f03ff5f13c4dda3f5ef1e.ctex"]
+source_file="res://Menu/Sprites/Pause_Assets/Sprite-ShadowVines.png"
+dest_files=["res://.godot/imported/Sprite-ShadowVines.png-6213230e077a182d6734407f7bdfcce1.ctex"]
 
 [params]
 

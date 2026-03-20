@@ -375,7 +375,7 @@ func Tween_fade_in(_object : Sprite2D, _position_scene : Vector2):
 ################################################################################
 
 #método sair da cena
-func Tween_fade_out(_object : Node2D, _position_origin : Vector2):
+func Tween_fade_out(_object : Sprite2D, _position_origin : Vector2):
 
 	#SE Tween aparicion existir, eu deleto esse tween
 	if Tween_aparicion: Tween_aparicion.kill()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqybknulc04bc" path="res://Worlds/Scripts/game_over_screen.gd" id="1_uysed"]
 [ext_resource type="Texture2D" uid="uid://bi6ya2qi2m4iq" path="res://Characters/Sprites/Sprite-Light.png" id="2_so8ai"]
-[ext_resource type="Texture2D" uid="uid://cnmxvpxuumuoj" path="res://Menu/Sprites/Buttons/RetryMenu-Button.png" id="3_odjh8"]
+[ext_resource type="Texture2D" uid="uid://cnmxvpxuumuoj" path="res://Menu/Sprites/Buttons/Buttons_Menu/RetryMenu-Button.png" id="3_odjh8"]
 [ext_resource type="Script" uid="uid://yppm0ae6v2r5" path="res://Menu/My_Button.gd" id="4_4whg5"]
 [ext_resource type="FontFile" uid="uid://bw0xo6e1h53n7" path="res://Characters/Fonts/2.png" id="6_oe2du"]
 

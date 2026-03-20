@@ -55,6 +55,9 @@ folder_colors={
 "res://Menu/Shaders/": "pink",
 "res://Menu/Sprites/": "gray",
 "res://Menu/Sprites/Buttons/": "purple",
+"res://Menu/Sprites/Buttons/Button_Pause/": "blue",
+"res://Menu/Sprites/Buttons/Buttons_Menu/": "pink",
+"res://Menu/Sprites/Pause_Assets/": "pink",
 "res://Worlds/cines/": "teal",
 "res://Worlds/tiles/": "yellow"
 }

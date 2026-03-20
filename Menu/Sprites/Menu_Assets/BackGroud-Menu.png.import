@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cntyqjwrntjtu"
-path="res://.godot/imported/Sprite-Bar_menu.png-19c1775e8a5eadb51e45a0e4429e1801.ctex"
+uid="uid://m6cb8icuj2b3"
+path="res://.godot/imported/BackGroud-Menu.png-4079838eba362d4ac80081fc7a55167f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/Sprites/Sprite-Bar_menu.png"
-dest_files=["res://.godot/imported/Sprite-Bar_menu.png-19c1775e8a5eadb51e45a0e4429e1801.ctex"]
+source_file="res://Menu/Sprites/Menu_Assets/BackGroud-Menu.png"
+dest_files=["res://.godot/imported/BackGroud-Menu.png-4079838eba362d4ac80081fc7a55167f.ctex"]
 
 [params]
 

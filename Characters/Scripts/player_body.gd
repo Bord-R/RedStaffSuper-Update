@@ -444,7 +444,7 @@ func GameOver_on(_active : bool):
 	if _active:
 
 		#inicio o ciclo de vida da tela de game over
-		Game_Over_Screen.Cicle_Life()
+		Game_Over_Screen.Cicle_life()
 
 ################################################################################
 
