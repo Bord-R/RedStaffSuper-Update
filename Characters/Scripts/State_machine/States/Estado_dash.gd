@@ -131,7 +131,7 @@ func Create_Effect():
 	_Create_Effect.hframes = Sprite2d.hframes
 	_Create_Effect.vframes = Sprite2d.vframes
 
-	_light.texture = load("res://Characters/Sprites/Sprite-BlurEffect.png") #coloco uma textura no ponto de luz
+	_light.texture = load("res://Characters/Sprites/Effects/Sprite-BlurEffect.png") #coloco uma textura no ponto de luz
 	
 	#mudando a direção do efeito
 	_Create_Effect.flip_h = Character.Image_texture.flip_h

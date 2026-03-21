@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dqcuau0vk0g0d"]
 
 [ext_resource type="Texture2D" uid="uid://dpg4ysb7hwgm4" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Super_Effects/Sprite-BuffAreaEffect.png" id="1_mgqyg"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="2_52g83"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="2_52g83"]
 [ext_resource type="Script" uid="uid://b8xtsbfi8lcgd" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/Buff_areaEffect.gd" id="2_q3hxm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3hxm"]

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dsr2bvynqhw71" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Create_effect.gd" id="2_c70km"]
 [ext_resource type="Texture2D" uid="uid://cwyxodx02reht" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Super_Effects/Sprite-PoisonAreaEffect.png" id="2_sgwo4"]
 [ext_resource type="PackedScene" uid="uid://cbmb8ktxwttr2" path="res://Characters/cines/poison_effect.tscn" id="3_3wgcp"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="3_lcodl"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="3_lcodl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ma4c"]
 radius = 86.023254

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://be8nc3qt5bik4"]
 
 [ext_resource type="Texture2D" uid="uid://siq8d4uf8qv6" path="res://Characters/Sprites/pistols/bullets/bullet_effects/Sprite-particle_bullet.png" id="1_b05ox"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="2_anu8d"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="2_anu8d"]
 
 [sub_resource type="Animation" id="Animation_1vndi"]
 length = 0.001

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx48or75c3t1b"
-path="res://.godot/imported/Sprite-BlurEffect.png-996d5d2102e3a5426e65c4a3c88a2950.ctex"
+uid="uid://c4bru6g46vpti"
+path="res://.godot/imported/Sprite-WalkEffect3.png-e8754c425100dea23389dd4640447e48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Sprites/Sprite-BlurEffect.png"
-dest_files=["res://.godot/imported/Sprite-BlurEffect.png-996d5d2102e3a5426e65c4a3c88a2950.ctex"]
+source_file="res://Characters/Sprites/Effects/Sprite-WalkEffect3.png"
+dest_files=["res://.godot/imported/Sprite-WalkEffect3.png-e8754c425100dea23389dd4640447e48.ctex"]
 
 [params]
 

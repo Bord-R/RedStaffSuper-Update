@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1ebijd5tjcu5" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/heart_effect.gd" id="1_33abk"]
 [ext_resource type="Texture2D" uid="uid://c8nu7afdhopmx" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Super_Effects/Sprite-HearthEffect.png" id="2_dawno"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="3_n6x0c"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="3_n6x0c"]
 [ext_resource type="Script" uid="uid://pf48jsiuwomh" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/CircleMov.gd" id="4_ndjhe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0s2in"]

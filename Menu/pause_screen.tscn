@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://doiy16hyukd7u"]
+[gd_scene load_steps=33 format=3 uid="uid://doiy16hyukd7u"]
 
 [ext_resource type="Texture2D" uid="uid://bxekl4n47o0gn" path="res://Menu/Sprites/Pause_Assets/Sprite-ShadowVines.png" id="1_1gl2x"]
 [ext_resource type="Script" uid="uid://cfev2knafoyuq" path="res://Menu/pause_screen.gd" id="1_bi2ra"]
@@ -7,6 +7,147 @@
 [ext_resource type="Texture2D" uid="uid://h5lglmdh7wt3" path="res://Menu/Sprites/Pause_Assets/Sprite-PauseBar.png" id="3_bi2ra"]
 [ext_resource type="Texture2D" uid="uid://buxxspwyis8ca" path="res://Menu/Sprites/Pause_Assets/Sprite-PauseTitle.png" id="4_xq48v"]
 [ext_resource type="Texture2D" uid="uid://cdfed8dokub24" path="res://Menu/Sprites/Buttons/Button_Pause/Sprite-ButtonResume.png" id="5_6qq2k"]
+[ext_resource type="Shader" uid="uid://cur5kdo3q4cjg" path="res://Menu/Shaders/BackGroud-Menu.gdshader" id="8_p6itd"]
+[ext_resource type="Texture2D" uid="uid://m6cb8icuj2b3" path="res://Menu/Sprites/Menu_Assets/BackGroud-Menu.png" id="9_qel8w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_msrwd"]
+shader = ExtResource("8_p6itd")
+shader_parameter/Reducao = 0.5
+shader_parameter/Cor = Color(0, 0, 0.26953125, 0)
+shader_parameter/Alpha_Cor = 1.0
+
+[sub_resource type="Animation" id="Animation_p6itd"]
+resource_name = "init"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShadowVines:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.017453292519943295, 0.017453292519943295]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vines:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.03490658503988659, -0.03490658503988659]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bar:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 5), Vector2(0, -5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -15), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MyButton:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.17453292519943295, 0.17453292519943295]
+}
+
+[sub_resource type="Animation" id="Animation_qel8w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShadowVines:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vines:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 167)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-226, 96)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MyButton:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msrwd"]
+_data = {
+&"RESET": SubResource("Animation_qel8w"),
+&"init": SubResource("Animation_p6itd")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xq48v"]
 atlas = ExtResource("5_6qq2k")
@@ -152,7 +293,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PauseScreen" type="CanvasLayer" node_paths=PackedStringArray("ShadowVines", "Vines", "BarPause", "TextPause", "ButtonResume")]
+[node name="PauseScreen" type="CanvasLayer" node_paths=PackedStringArray("ShadowVines", "Vines", "BarPause", "TextPause", "ButtonResume", "Background")]
 process_mode = 3
 layer = 2
 script = ExtResource("1_bi2ra")
@@ -161,6 +302,24 @@ Vines = NodePath("Vines")
 BarPause = NodePath("Bar")
 TextPause = NodePath("Title")
 ButtonResume = NodePath("MyButton")
+Background = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_msrwd")
+offset_left = -29.0
+offset_top = -26.0
+offset_right = 665.0
+offset_bottom = 382.0
+texture = ExtResource("9_qel8w")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_msrwd")
+}
+autoplay = "init"
 
 [node name="ShadowVines" type="Sprite2D" parent="."]
 position = Vector2(329, -163)
@@ -173,15 +332,17 @@ texture = ExtResource("2_6qq2k")
 [node name="Bar" type="Sprite2D" parent="."]
 position = Vector2(900, 167)
 texture = ExtResource("3_bi2ra")
+offset = Vector2(0, 4.330388)
 
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(-226, 96)
 texture = ExtResource("4_xq48v")
+offset = Vector2(0, -13.995583)
 
 [node name="MyButton" type="TextureButton" parent="."]
-offset_left = 346.0
+offset_left = 400.0
 offset_top = 400.0
-offset_right = 561.0
+offset_right = 615.0
 offset_bottom = 522.0
 pivot_offset = Vector2(107.5, 61)
 ignore_texture_size = true

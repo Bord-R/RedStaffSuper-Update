@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ni5w6xpqi4lw" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/bazuca_explodion.gd" id="1_12irw"]
 [ext_resource type="Texture2D" uid="uid://cj6s7uyrtt4h7" path="res://Characters/Sprites/pistols/bullets/bullet_effects/Sprite-particle_bazuca.png" id="2_6saah"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="3_fe4o7"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="3_fe4o7"]
 [ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="4_w2s81"]
 [ext_resource type="Script" uid="uid://bm7gps7pilfnn" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/Super_freeze.gd" id="5_6saah"]
 

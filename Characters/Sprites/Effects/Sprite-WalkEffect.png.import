@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lc3at6mkpnw6"
-path="res://.godot/imported/Sprite-maça.png-bd1354170ad4e35107756b8bc9c5faea.ctex"
+uid="uid://blyj0yb4y8clu"
+path="res://.godot/imported/Sprite-WalkEffect.png-9784bd6942b7272c9941682d37e9ff15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Sprites/Player/HUD/Sprite-maça.png"
-dest_files=["res://.godot/imported/Sprite-maça.png-bd1354170ad4e35107756b8bc9c5faea.ctex"]
+source_file="res://Characters/Sprites/Effects/Sprite-WalkEffect.png"
+dest_files=["res://.godot/imported/Sprite-WalkEffect.png-9784bd6942b7272c9941682d37e9ff15.ctex"]
 
 [params]
 

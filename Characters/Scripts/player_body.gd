@@ -96,7 +96,7 @@ var vel : float = 0
 var direction : Vector2 = Vector2.ZERO
 
 #velocidade maxima
-var VEL_MAX : float = 200
+var VEL_MAX : float = 250
 
 #minha animação atual
 var anim_atual : String
@@ -444,7 +444,7 @@ func GameOver_on(_active : bool):
 	if _active:
 
 		#inicio o ciclo de vida da tela de game over
-		Game_Over_Screen.Cicle_life()
+		Game_Over_Screen.Cicle_Life()
 
 ################################################################################
 

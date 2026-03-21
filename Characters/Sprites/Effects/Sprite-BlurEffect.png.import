@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbfdygm7st1ba"
-path="res://.godot/imported/Sprite-arms.png-cad224485558da99b0c6ccd8c806392f.ctex"
+uid="uid://cx48or75c3t1b"
+path="res://.godot/imported/Sprite-BlurEffect.png-ceaee2a34098f9f92a3e5f7bc32b9eeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Sprites/Sprite-arms.png"
-dest_files=["res://.godot/imported/Sprite-arms.png-cad224485558da99b0c6ccd8c806392f.ctex"]
+source_file="res://Characters/Sprites/Effects/Sprite-BlurEffect.png"
+dest_files=["res://.godot/imported/Sprite-BlurEffect.png-ceaee2a34098f9f92a3e5f7bc32b9eeb.ctex"]
 
 [params]
 

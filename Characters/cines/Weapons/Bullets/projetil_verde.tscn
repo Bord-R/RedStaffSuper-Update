@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://be8nc3qt5bik4" path="res://Characters/cines/Weapons/Bullets/Bullet_explodion.tscn" id="2_dcka2"]
 [ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="3_c0uq6"]
 [ext_resource type="Texture2D" uid="uid://ec4i2k3rnsy4" path="res://Characters/Sprites/pistols/bullets/Sprite-Bullet-StaffGreen.png" id="4_a8iml"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="5_3itk6"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="5_3itk6"]
 [ext_resource type="Script" uid="uid://dpubroe8jpixg" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Spin_mov.gd" id="5_dcka2"]
 [ext_resource type="Script" uid="uid://dp8ck4ccl3dvc" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_enemies.gd" id="6_fx6pq"]
 [ext_resource type="Script" uid="uid://cc8s3ipraawh5" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Bullet_Collided_walls.gd" id="7_r075c"]

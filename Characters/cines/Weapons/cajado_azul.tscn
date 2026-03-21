@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="2_7rrmo"]
 [ext_resource type="PackedScene" uid="uid://crtmfwgqacpgn" path="res://Characters/cines/Weapons/Bullets/projetil_azul.tscn" id="2_sck3f"]
 [ext_resource type="PackedScene" uid="uid://dnweokegmobs" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/super_staff_blue.tscn" id="3_x1j2t"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="4_sck3f"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="4_sck3f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13ewu"]
 radius = 5.0

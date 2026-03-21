@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cbckv6j5yghoy" path="res://Characters/cines/Weapons/Bullets/projetil_vermelho.tscn" id="2_8vgq3"]
 [ext_resource type="Texture2D" uid="uid://biw7hgnvvs0y0" path="res://Characters/Sprites/pistols/Sprite-arms.png" id="3_04oht"]
 [ext_resource type="PackedScene" uid="uid://bg2um8pconfq0" path="res://Characters/cines/Weapons/Bullets/Super_Bullets/super_staff_red.tscn" id="3_31hfn"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="5_jqrf4"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="5_jqrf4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tapcu"]
 atlas = ExtResource("3_04oht")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://du8cvv8ny75uw" path="res://Characters/Scripts/Enemies_scripts/possa.gd" id="1_1fixv"]
 [ext_resource type="Texture2D" uid="uid://dx3yth7vc6ofq" path="res://Characters/Sprites/enemies/effects_enemies/Sprite-gosma.png" id="2_1fixv"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="3_shrwv"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="3_shrwv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fixv"]
 radius = 15.0

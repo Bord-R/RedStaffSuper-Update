@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://bb30gtu6mmqd6"]
+
+[ext_resource type="Texture2D" uid="uid://bjcyxod3gudyg" path="res://Characters/Sprites/Effects/Sprite-FireEffect.png" id="1_j38af"]
+[ext_resource type="Texture2D" uid="uid://da458siipqhly" path="res://Characters/Sprites/Effects/Sprite-FireEffect2.png" id="2_qek27"]
+[ext_resource type="Texture2D" uid="uid://pwhqtg25kdbo" path="res://Characters/Sprites/Effects/Sprite-FireEffect3.png" id="3_kfgn0"]
+[ext_resource type="Texture2D" uid="uid://63x5kfmhf44o" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Sprite-Super_StaffBlue.png" id="4_qek27"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_4hj4t"]
+resource_local_to_scene = true
+frames = 3
+speed_scale = 18.6
+frame_0/texture = ExtResource("1_j38af")
+frame_1/texture = ExtResource("2_qek27")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_kfgn0")
+frame_2/duration = 1.0
+
+[sub_resource type="Gradient" id="Gradient_j38af"]
+offsets = PackedFloat32Array(0, 0.5051546, 0.78350514, 0.9896907)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.6039216, 1, 0.92941177, 0.003921569, 0.09803922, 1, 1, 0, 0.05490196, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qek27"]
+gradient = SubResource("Gradient_j38af")
+
+[sub_resource type="Curve" id="Curve_kfgn0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.98636353, 0.5393259), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4hj4t"]
+curve = SubResource("Curve_kfgn0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ayb3n"]
+resource_local_to_scene = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+spread = 33.48
+initial_velocity_min = 158.92
+initial_velocity_max = 178.3
+gravity = Vector3(98, 0, 0)
+scale_curve = SubResource("CurveTexture_4hj4t")
+color_ramp = SubResource("GradientTexture1D_qek27")
+
+[node name="FireGunParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 6
+emitting = false
+amount = 12
+texture = SubResource("AnimatedTexture_4hj4t")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.71
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ayb3n")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_qek27")
+
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

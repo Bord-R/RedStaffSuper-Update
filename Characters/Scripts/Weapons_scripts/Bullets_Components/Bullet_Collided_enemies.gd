@@ -7,6 +7,9 @@ class_name CollidedEnemies #criando para ser usado como node
 #meu pai
 @onready var Bullet : Area2D = get_parent()
 
+#efeito de fogo
+@onready var Effect_Fire : PackedScene = preload("res://Characters/cines/EffectsParticles/fire_gun_particles.tscn")
+
 #minha restrição
 @export var Restriction_State : bool = true
 
@@ -15,6 +18,8 @@ class_name CollidedEnemies #criando para ser usado como node
 
 #força do screen shake
 @export_range(0.0,10.0,0.5) var Shake : float = 2.5
+
+@export var Is_FireEffect : bool = true  #se eu posso soltar um efeito de fogo quando colidir com um inimigo
 
 #meu valor inicial
 const VALUE_INI : int = 1
@@ -72,6 +77,8 @@ func Area_Collided( _area : Area2D):
 		#método que dara um efeito de brilho
 		Tween_Shader()
 
+		Create_FireEffect() #crio um efeito de fogo
+
 		#SE o eu tenho restrições a cerca dos estados do inimigo
 		if Restriction_State == true:
 
@@ -102,6 +109,26 @@ func Aplicate_Damage(_Alvo : EnemiesFruits):
 		Bullet.Super_Acresim,
 		Bullet.Points_Acresim
 	)
+
+################################################################################
+
+#método que criara um efeito de fogo
+func Create_FireEffect():
+
+	if !Is_FireEffect: return #SE eu não posso criar um efeito de fogo, eu retorno
+
+	#instancio o efeito de fogo
+	var _Effect_Instance = Effect_Fire.instantiate()
+
+	#configuro a posição do efeito para ser a mesma do meu pai
+	_Effect_Instance.global_position = Bullet.global_position
+
+	_Effect_Instance.rotation = Bullet.rotation
+
+	_Effect_Instance.get_child(0).emitting = true #ativo a emissão do meu efeito
+
+	#adiciono ele como filho do meu pai
+	get_tree().current_scene.add_child(_Effect_Instance)
 
 ################################################################################
 

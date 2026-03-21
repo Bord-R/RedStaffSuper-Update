@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cd2b0ddsenqmi" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/spike_effect.gd" id="1_nfk47"]
 [ext_resource type="Texture2D" uid="uid://c0q3m5jioytr1" path="res://Characters/Sprites/pistols/bullets/Super_Bullets/Super_Effects/Sprite-SpikesEffect.png" id="1_pkonu"]
 [ext_resource type="Shader" uid="uid://dngotvsdxaptf" path="res://Characters/shaders/Shader_Commom.gdshader" id="2_hy3li"]
-[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Sprite-BlurEffect.png" id="4_6yynj"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="4_6yynj"]
 [ext_resource type="Script" uid="uid://pf48jsiuwomh" path="res://Characters/Scripts/Weapons_scripts/Bullets_Components/Super_Components/CircleMov.gd" id="5_4hqlt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfk47"]
