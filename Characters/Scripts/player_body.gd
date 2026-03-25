@@ -90,7 +90,9 @@ var Possui_arma : bool = false
 
 @export_group("Scenes")
 
-@export var Smoke : PackedScene
+@export var Smoke : PackedScene #cena da fumaça
+
+var smoke_Instance : Node2D = null #instanicia da fumaça
 
 #vida do jogador
 var Player_life : int = 0
@@ -130,6 +132,8 @@ var Tween_Backfade : Tween
 func _ready() -> void:
 
 	VM.Conected_Signals(gameover, GameOver_on) #conecto meu sinal ao meu método
+
+	CreateSmokeInWalk() #instanciando fumaça
 
 	#meu loader começa a monitorar
 	Loader.monitorable = true
@@ -454,16 +458,20 @@ func GameOver_on(_active : bool):
 
 ################################################################################
 
-#método que criara uma fumaça quando eu estiver na animação de andar
+#método que instanciara a fumaça 
 func CreateSmokeInWalk():
 
-	var _new_smoke : Node2D = Smoke.instantiate() #instanciando "fumaça"
+	smoke_Instance = Smoke.instantiate() #instanciando "fumaça"
 
-	_new_smoke.global_position = global_position #ela nasce na minha posição
+	smoke_Instance.global_position = global_position #ela nasce na minha posição
 
-	_new_smoke.get_child(0).emitting = true #ela é emitida
+	call_deferred("add_child", smoke_Instance) #adiciono ela como filha da cena atual
 
-	get_tree().current_scene.add_child(_new_smoke) #adiciono ela como filha da cena atual
+################################################################################
+
+#método que emitira ou não a fumaça
+func EmittingYN(_can_emitting : bool):
+	smoke_Instance.get_child(0).emitting = _can_emitting #minha fumaça é emitida depedendo do valor do parâmetro
 
 ################################################################################
 
