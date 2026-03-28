@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://yuw8ty4qni6i"]
+[gd_scene load_steps=18 format=4 uid="uid://yuw8ty4qni6i"]
 
 [ext_resource type="TileSet" uid="uid://1s707n68byqp" path="res://Worlds/tiles/1_world.tres" id="1_m4dxa"]
 [ext_resource type="Script" uid="uid://bmo70jsanelwe" path="res://Characters/Scripts/Camera.gd" id="2_7jtqy"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dbrg3bafyvxoa" path="res://Characters/cines/Weapons/cajado_verde.tscn" id="8_dkjyc"]
 [ext_resource type="PackedScene" uid="uid://giu8lit01pvb" path="res://Characters/cines/Weapons/bazuca.tscn" id="9_m4yvn"]
 [ext_resource type="PackedScene" uid="uid://dvrw7o6fjbjv6" path="res://Characters/cines/HUD.tscn" id="11_m4yvn"]
+[ext_resource type="PackedScene" uid="uid://37kqx7jbyxgb" path="res://Characters/cines/BuffAtributes/citric_parry.tscn" id="13_7mkxn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mkxn"]
 resource_local_to_scene = true
@@ -176,6 +177,9 @@ position = Vector2(-167, -59)
 [node name="Player_body" parent="Characters" node_paths=PackedStringArray("Screen_shake") instance=ExtResource("2_s8sl4")]
 unique_name_in_owner = true
 Screen_shake = NodePath("../../MyCamera")
+
+[node name="CitricParry" parent="Characters" instance=ExtResource("13_7mkxn")]
+position = Vector2(96.85605, -48.86371)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("11_m4yvn")]
 visible = false

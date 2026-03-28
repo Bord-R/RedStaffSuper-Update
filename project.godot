@@ -37,11 +37,13 @@ window/stretch/aspect="expand"
 folder_colors={
 "res://Characters/": "red",
 "res://Characters/Scripts/": "blue",
+"res://Characters/Scripts/Buff_Atributes/": "purple",
 "res://Characters/Scripts/Enemies_scripts/": "red",
 "res://Characters/Scripts/State_machine/": "orange",
 "res://Characters/Scripts/State_machine/States/": "yellow",
 "res://Characters/Scripts/Weapons_scripts/": "pink",
 "res://Characters/Sprites/": "yellow",
+"res://Characters/Sprites/BuffAtributes/": "teal",
 "res://Characters/Sprites/Player/HUD/": "orange",
 "res://Characters/Sprites/Player/Skins/": "teal",
 "res://Characters/Sprites/enemies/": "purple",

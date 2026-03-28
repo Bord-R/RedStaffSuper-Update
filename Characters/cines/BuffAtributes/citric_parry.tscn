@@ -1,0 +1,198 @@
+[gd_scene load_steps=10 format=3 uid="uid://37kqx7jbyxgb"]
+
+[ext_resource type="Script" uid="uid://dqh28p2ra7tjg" path="res://Characters/Scripts/Buff_Atributes/BuffAtribute.gd" id="1_mt4t4"]
+[ext_resource type="Texture2D" uid="uid://dw5j77cin46h3" path="res://Characters/Sprites/BuffAtributes/Icons/Sprite-IconParry.png" id="2_1vgh6"]
+[ext_resource type="Texture2D" uid="uid://b74nn5ugvt2mb" path="res://Characters/Sprites/Sprite-shadow.png" id="3_1jp1b"]
+[ext_resource type="Texture2D" uid="uid://cx48or75c3t1b" path="res://Characters/Sprites/Effects/Sprite-BlurEffect.png" id="4_1vgh6"]
+
+[sub_resource type="Animation" id="Animation_mt4t4"]
+resource_name = "Normal"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -22), Vector2(0, -33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 1), Vector2(1, 0.8), Vector2(0.8, 1), Vector2(1, 0.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.4, 1), Vector2(0.8, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Texture/PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 0.25]
+}
+
+[sub_resource type="Animation" id="Animation_1vgh6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Texture/PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_1jp1b"]
+resource_name = "end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture/PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1), Vector2(1.5, 1), Vector2(0, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jp1b"]
+_data = {
+&"Normal": SubResource("Animation_mt4t4"),
+&"RESET": SubResource("Animation_1vgh6"),
+&"end": SubResource("Animation_1jp1b")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2jrgy"]
+radius = 19.026299
+
+[node name="CitricParry" type="Node2D" node_paths=PackedStringArray("anim_BA", "hitbox_BA")]
+y_sort_enabled = true
+script = ExtResource("1_mt4t4")
+anim_BA = NodePath("AnimationPlayer")
+hitbox_BA = NodePath("Texture/HitBox")
+caught_anim = "end"
+metadata/_custom_type_script = "uid://dqh28p2ra7tjg"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1jp1b")
+}
+autoplay = "Normal"
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 1)
+texture = ExtResource("3_1jp1b")
+
+[node name="Texture" type="Sprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0, -22)
+texture = ExtResource("2_1vgh6")
+
+[node name="PointLight2D" type="PointLight2D" parent="Texture"]
+position = Vector2(0, -0.2314198)
+scale = Vector2(1.0807787, 1.0259132)
+color = Color(1, 1, 0.69803923, 0.5254902)
+texture = ExtResource("4_1vgh6")
+
+[node name="HitBox" type="Area2D" parent="Texture"]
+visible = false
+
+[node name="Collision" type="CollisionShape2D" parent="Texture/HitBox"]
+shape = SubResource("CircleShape2D_2jrgy")
